@@ -27,7 +27,9 @@ public class BorderSection implements Serializable {
 	private String code;
 	private String name;
 	private String comment;
-	private Coordinates coordinates;
+	private String longitude;
+	private String latitude;
+	private String height;
 	
 	@ManyToOne
 	private Manager manager;
@@ -54,12 +56,6 @@ public class BorderSection implements Serializable {
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
-	}
-	public Coordinates getCoordinates() {
-		return coordinates;
-	}
-	public void setCoordinates(Coordinates coordinates) {
-		this.coordinates = coordinates;
 	}
 	public BorderSection() {
 		super();
@@ -89,5 +85,24 @@ public class BorderSection implements Serializable {
 	public void setGuard(Guard param) {
 	    this.guard = param;
 	}
+	public String getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+	public String getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	public String getHeight() {
+		return height;
+	}
+	public void setHeight(String height) {
+		this.height = height;
+	}
    
+	
 }
