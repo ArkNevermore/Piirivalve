@@ -3,7 +3,7 @@
 
 package ee.piirivalve.entities;
 
-import ee.piirivalve.entities.Location;
+import ee.piirivalve.entities.Manager;
 import java.lang.Integer;
 import java.lang.Long;
 import java.util.List;
@@ -13,81 +13,81 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect Location_Roo_Entity {
+privileged aspect Manager_Roo_Entity {
     
     @PersistenceContext
-    transient EntityManager Location.entityManager;
+    transient EntityManager Manager.entityManager;
     
     @Version
     @Column(name = "version")
-    private Integer Location.version;
+    private Integer Manager.version;
     
-    public Integer Location.getVersion() {
+    public Integer Manager.getVersion() {
         return this.version;
     }
     
-    public void Location.setVersion(Integer version) {
+    public void Manager.setVersion(Integer version) {
         this.version = version;
     }
     
     @Transactional
-    public void Location.persist() {
+    public void Manager.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void Location.remove() {
+    public void Manager.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Location attached = Location.findLocation(this.id);
+            Manager attached = Manager.findManager(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void Location.flush() {
+    public void Manager.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void Location.clear() {
+    public void Manager.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public Location Location.merge() {
+    public Manager Manager.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        Location merged = this.entityManager.merge(this);
+        Manager merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
     
-    public static final EntityManager Location.entityManager() {
-        EntityManager em = new Location().entityManager;
+    public static final EntityManager Manager.entityManager() {
+        EntityManager em = new Manager().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long Location.countLocations() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Location o", Long.class).getSingleResult();
+    public static long Manager.countManagers() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM Manager o", Long.class).getSingleResult();
     }
     
-    public static List<Location> Location.findAllLocations() {
-        return entityManager().createQuery("SELECT o FROM Location o", Location.class).getResultList();
+    public static List<Manager> Manager.findAllManagers() {
+        return entityManager().createQuery("SELECT o FROM Manager o", Manager.class).getResultList();
     }
     
-    public static Location Location.findLocation(Long id) {
+    public static Manager Manager.findManager(Long id) {
         if (id == null) return null;
-        return entityManager().find(Location.class, id);
+        return entityManager().find(Manager.class, id);
     }
     
-    public static List<Location> Location.findLocationEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Location o", Location.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<Manager> Manager.findManagerEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM Manager o", Manager.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

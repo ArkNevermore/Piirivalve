@@ -3,12 +3,14 @@ package ee.piirivalve.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Guard;
+import ee.piirivalve.entities.Manager;
 
 /**
  * Entity implementation class for Entity: BorderSection
@@ -19,7 +21,7 @@ import ee.piirivalve.entities.Guard;
 @RooEntity
 public class BorderSection implements Serializable {
 
-	   
+	@GeneratedValue(strategy = GenerationType.TABLE)  
 	@Id
 	private Long id;
 	private static final long serialVersionUID = 1L;
@@ -32,12 +34,13 @@ public class BorderSection implements Serializable {
 	private String height;
 	
 	@ManyToOne
-	private Manager manager;
+	private CrossingPoint crossingPoints;
 	
 	@ManyToOne
-	private CrossingPoint crossingPoints;
-	@ManyToOne
 	private Guard guard;
+	
+	@ManyToOne
+	private Manager manager;
 	
 	public String getCode() {
 		return code;
@@ -66,12 +69,6 @@ public class BorderSection implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public Manager getManager() {
-	    return manager;
-	}
-	public void setManager(Manager param) {
-	    this.manager = param;
 	}
 	public CrossingPoint getCrossingPoints() {
 	    return crossingPoints;
@@ -102,6 +99,12 @@ public class BorderSection implements Serializable {
 	}
 	public void setHeight(String height) {
 		this.height = height;
+	}
+	public Manager getManager() {
+	    return manager;
+	}
+	public void setManager(Manager param) {
+	    this.manager = param;
 	}
    
 	

@@ -1,28 +1,38 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
-import java.lang.Long;
-import java.lang.String;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.roo.addon.tostring.RooToString;
 import ee.piirivalve.entities.BorderSection;
 import java.util.Collection;
+import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Manager
  *
  */
 @Entity
-
+@RooToString
+@RooEntity
 public class Manager implements Serializable {
-
-	   
+	
+	@GeneratedValue(strategy = GenerationType.TABLE)   
 	@Id
 	private Long id;
+	
 	private String name;
+	
 	private static final long serialVersionUID = 1L;
+	
 	@OneToMany(mappedBy = "manager")
-	private Collection<BorderSection> borderSections;
-
+	private Collection<BorderSection> borderSection;
+	
 	public Manager() {
 		super();
 	}   
@@ -40,11 +50,11 @@ public class Manager implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Collection<BorderSection> getBorderSections() {
-	    return borderSections;
+	public Collection<BorderSection> getBorderSection() {
+	    return borderSection;
 	}
-	public void setBorderSections(Collection<BorderSection> param) {
-	    this.borderSections = param;
+	public void setBorderSection(Collection<BorderSection> param) {
+	    this.borderSection = param;
 	}
    
 }

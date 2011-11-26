@@ -2,9 +2,10 @@ package ee.piirivalve.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -22,7 +23,7 @@ import javax.persistence.ManyToOne;
 @RooEntity
 public class CrossingPoint implements Serializable {
 
-	   
+    @GeneratedValue(strategy = GenerationType.TABLE)   
 	@Id
 	private Long id;
 	
@@ -33,8 +34,8 @@ public class CrossingPoint implements Serializable {
 	private String latitude;
 	private String height;
 	
-	private Date start;
-	private Date end;
+	private String startdate;
+	private String enddate;
 
 	
 	private static final long serialVersionUID = 1L;
@@ -73,18 +74,6 @@ public class CrossingPoint implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Date getStart() {
-		return start;
-	}
-	public void setStart(Date start) {
-		this.start = start;
-	}
-	public Date getEnd() {
-		return end;
-	}
-	public void setEnd(Date end) {
-		this.end = end;
-	}
 	public Collection<BorderSection> getBorderSection() {
 	    return borderSection;
 	}
@@ -114,6 +103,18 @@ public class CrossingPoint implements Serializable {
 	}
 	public void setHeight(String height) {
 		this.height = height;
+	}
+	public String getStartdate() {
+		return startdate;
+	}
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
+	public String getEnddate() {
+		return enddate;
+	}
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
 	}
    
 	

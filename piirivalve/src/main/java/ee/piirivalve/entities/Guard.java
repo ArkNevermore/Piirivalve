@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 import ee.piirivalve.entities.Troops;
+import javax.persistence.ManyToOne;
 
 /**
  * Entity implementation class for Entity: Guard
@@ -20,7 +23,7 @@ import ee.piirivalve.entities.Troops;
 @RooEntity
 public class Guard implements Serializable {
 
-	   
+    @GeneratedValue(strategy = GenerationType.TABLE)  
 	@Id
 	private Long id;
 	private String name;
@@ -36,8 +39,8 @@ public class Guard implements Serializable {
 	private Collection<CrossingPoint> crossingPoint;
 	@OneToMany(mappedBy = "guard")
 	private Collection<BorderSection> borderSection;
-	@OneToMany(mappedBy = "guard")
-	private Collection<Troops> troops;
+	@ManyToOne
+	private Troops troops;
 	public Guard() {
 		super();
 	}   
@@ -60,10 +63,10 @@ public class Guard implements Serializable {
 	public void setBorderSection(Collection<BorderSection> param) {
 	    this.borderSection = param;
 	}
-	public Collection<Troops> getTroops() {
+	public Troops getTroops() {
 	    return troops;
 	}
-	public void setTroops(Collection<Troops> param) {
+	public void setTroops(Troops param) {
 	    this.troops = param;
 	}
    

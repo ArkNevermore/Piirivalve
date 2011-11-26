@@ -11,12 +11,12 @@ privileged aspect Troops_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Code: ").append(getCode()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
-        sb.append("End: ").append(getEnd()).append(", ");
-        sb.append("Guard: ").append(getGuard()).append(", ");
+        sb.append("Enddate: ").append(getEnddate()).append(", ");
+        sb.append("Guard: ").append(getGuard() == null ? "null" : getGuard().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Location: ").append(getLocation()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Start: ").append(getStart()).append(", ");
+        sb.append("Startdate: ").append(getStartdate()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

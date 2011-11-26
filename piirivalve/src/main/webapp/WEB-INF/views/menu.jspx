@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_manager" z="drHA8Y4evrida0LSNQCfd7NSkmU=">
+            <menu:item id="i_manager_new" messageCode="global_menu_new" url="/managers?form" z="pZum6BHDwOKSoWFtDhhnmiITrC8="/>
+            <menu:item id="i_manager_list" messageCode="global_menu_list" url="/managers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="3Hpoqqnvi1PrlyYberG7ofcUC9s="/>
+        </menu:category>
+        <menu:category id="c_location" z="RvMgx8apsPylYygCQ4tMBVfulVw=">
+            <menu:item id="i_location_new" messageCode="global_menu_new" url="/locations?form" z="sW8KSnwNnd9wjssI0lLV1kzOguk="/>
+            <menu:item id="i_location_list" messageCode="global_menu_list" url="/locations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="VdKLEljpeTLil2W6A3GdWmSBzXI="/>
+        </menu:category>
+        <menu:category id="c_troops" z="wQHrzdTeUiiwpj80FKFvGivbh4k=">
+            <menu:item id="i_troops_new" messageCode="global_menu_new" url="/troopses?form" z="UdWATbhVK4ZISEOor7cwwB1UZa0="/>
+            <menu:item id="i_troops_list" messageCode="global_menu_list" url="/troopses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="jQgfY1UidhlwihP6+M454iB/vGE="/>
+        </menu:category>
+        <menu:category id="c_guard" z="fo7hwBYWW8bcC9mP4KSMZeMoBDs=">
+            <menu:item id="i_guard_new" messageCode="global_menu_new" url="/guards?form" z="ajvnwJ5fG4YXA4vzgn87rlKqUCI="/>
+            <menu:item id="i_guard_list" messageCode="global_menu_list" url="/guards?page=1&amp;size=${empty param.size ? 10 : param.size}" z="B/ZNirDEh5jMTOEVdWKh1XWPjbE="/>
+        </menu:category>
+        <menu:category id="c_bordersection" z="OVKRDuZR3JNdyZyI3euRk6ch7kg=">
+            <menu:item id="i_bordersection_new" messageCode="global_menu_new" url="/bordersections?form" z="ZDr2ZeEKnDkYHPUw/K9ZebIgHwo="/>
+            <menu:item id="i_bordersection_list" messageCode="global_menu_list" url="/bordersections?page=1&amp;size=${empty param.size ? 10 : param.size}" z="uOGHEQ0xlM8OrSNjy0u+RJELcYs="/>
+        </menu:category>
+        <menu:category id="c_crossingpoint" z="RwHkhhyVg7wW486W1FqOqKL2RsU=">
+            <menu:item id="i_crossingpoint_new" messageCode="global_menu_new" url="/crossingpoints?form" z="Wx8mMy3Gr8VzPzh+1ZxTK6DZy+4="/>
+            <menu:item id="i_crossingpoint_list" messageCode="global_menu_list" url="/crossingpoints?page=1&amp;size=${empty param.size ? 10 : param.size}" z="CgCD3dbP5Rj8gJZNtEzNAwYnQ0s="/>
+        </menu:category>
+    </menu:menu>
+</div>

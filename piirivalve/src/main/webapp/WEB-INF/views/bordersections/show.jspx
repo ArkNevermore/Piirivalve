@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_ee_piirivalve_entities_BorderSection" object="${bordersection}" path="/bordersections" z="4Xs5CuuhhwltgelGFEe6/LxWKH8=">
+        <field:display field="code" id="s_ee_piirivalve_entities_BorderSection_code" object="${bordersection}" z="1iSvMHnstKZiwwFel4vXYavqRF0="/>
+        <field:display field="name" id="s_ee_piirivalve_entities_BorderSection_name" object="${bordersection}" z="FDpgqgon72YCPVi5I/+PmxPxuZs="/>
+        <field:display field="comment" id="s_ee_piirivalve_entities_BorderSection_comment" object="${bordersection}" z="alYSYk3NTZuO0DRD3WIBcPDqH1k="/>
+        <field:display field="crossingPoints" id="s_ee_piirivalve_entities_BorderSection_crossingPoints" object="${bordersection}" z="/1SOJq7T076rANcJrfgPOvz/QOE="/>
+        <field:display field="guard" id="s_ee_piirivalve_entities_BorderSection_guard" object="${bordersection}" z="9xDdGwI3oiwLQ8DVle3Tf8rzzcw="/>
+        <field:display field="longitude" id="s_ee_piirivalve_entities_BorderSection_longitude" object="${bordersection}" z="cOUcmCVudxWA7mGzqAJ5qv7U/4E="/>
+        <field:display field="latitude" id="s_ee_piirivalve_entities_BorderSection_latitude" object="${bordersection}" z="urHckM52C8qGDgm8hyLr+CkeLEE="/>
+        <field:display field="height" id="s_ee_piirivalve_entities_BorderSection_height" object="${bordersection}" z="6eSH5ddaikUbG6DufCT/RBwci+8="/>
+        <field:display field="manager" id="s_ee_piirivalve_entities_BorderSection_manager" object="${bordersection}" z="OVLBjr7jYJld5L+vJTDsiq58puI="/>
+    </page:show>
+</div>

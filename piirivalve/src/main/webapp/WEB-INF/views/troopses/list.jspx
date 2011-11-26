@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_piirivalve_entities_Troops" items="${troopses}" z="S0HkktT3U7SCNlnse8nzxIgz5sc=">
+        <table:table data="${troopses}" id="l_ee_piirivalve_entities_Troops" path="/troopses" z="pyzu76dQUWRDT2i1QnlzvT6H2gc=">
+            <table:column id="c_ee_piirivalve_entities_Troops_code" property="code" z="hwGwxuvNCqoUo+9gRQAAe8UAvJ0="/>
+            <table:column id="c_ee_piirivalve_entities_Troops_name" property="name" z="qr5ABH6lw1ohVKBWmqbcGL2HRYM="/>
+            <table:column id="c_ee_piirivalve_entities_Troops_comment" property="comment" z="rOotzRr5DNehUy3asvazOdsbLqM="/>
+            <table:column id="c_ee_piirivalve_entities_Troops_guard" property="guard" z="K7K3AoBTUgP2dQrWc0qNqqcZlIw="/>
+            <table:column id="c_ee_piirivalve_entities_Troops_location" property="location" z="k60JbHObthwlDXHHdtmHY4z0PtY="/>
+            <table:column id="c_ee_piirivalve_entities_Troops_startdate" property="startdate" z="v9L1jwTjjrr6zrSpCZdcVYj+ipk="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_piirivalve_entities_CrossingPoint" items="${crossingpoints}" z="12lzxVK4JmuH38XuiVtESyX2Zy8=">
+        <table:table data="${crossingpoints}" id="l_ee_piirivalve_entities_CrossingPoint" path="/crossingpoints" z="4kdNqwbhuIsbObEPIiO3ygMSRwM=">
+            <table:column id="c_ee_piirivalve_entities_CrossingPoint_code" property="code" z="LrvWsB+DKJFoN6+lQDMelvlQTns="/>
+            <table:column id="c_ee_piirivalve_entities_CrossingPoint_name" property="name" z="4Y7EECQp0bCrEm8fIPWhWmdWCIg="/>
+            <table:column id="c_ee_piirivalve_entities_CrossingPoint_comment" property="comment" z="qT0guqKJ1pzrP6nDQ90H7lN74uo="/>
+            <table:column id="c_ee_piirivalve_entities_CrossingPoint_borderSection" property="borderSection" z="oy05qyMNlgzHFk2cEc84+YdqyGk="/>
+            <table:column id="c_ee_piirivalve_entities_CrossingPoint_guard" property="guard" z="21Uwz2ZlFFLx+zvr4LGdc0wtxDA="/>
+            <table:column id="c_ee_piirivalve_entities_CrossingPoint_longitude" property="longitude" z="U/cFJo5KIrON7/bro2b2uNOkPUs="/>
+        </table:table>
+    </page:list>
+</div>

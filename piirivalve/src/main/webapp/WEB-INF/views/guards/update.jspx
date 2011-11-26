@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_piirivalve_entities_Guard" modelAttribute="guard" path="/guards" versionField="Version" z="LVla5+6mlkwBkcSkQPHhP5riFtk=">
+        <field:input field="name" id="c_ee_piirivalve_entities_Guard_name" z="AadqXuganUBylde311fJrkngpu8="/>
+        <field:simple field="crossingPoint" id="c_ee_piirivalve_entities_Guard_crossingPoint" messageCode="entity_reference_not_managed" messageCodeAttribute="Crossing Point" z="YItjHYBqa92pr/j7bkg9X44PWBI="/>
+        <field:simple field="borderSection" id="c_ee_piirivalve_entities_Guard_borderSection" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Section" z="v6Wc3HHOO6t1jGl3b7B8aPD3ih0="/>
+        <field:simple field="troops" id="c_ee_piirivalve_entities_Guard_troops" messageCode="entity_reference_not_managed" messageCodeAttribute="Troops" z="NXhccvHEcEekIUJvEGgVkMU5mZI="/>
+    </form:update>
+</div>

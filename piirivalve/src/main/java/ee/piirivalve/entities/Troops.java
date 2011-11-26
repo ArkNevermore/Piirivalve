@@ -1,15 +1,18 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
 import ee.piirivalve.entities.Guard;
+import java.util.Collection;
+import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Troops
@@ -20,51 +23,36 @@ import ee.piirivalve.entities.Guard;
 @RooEntity
 public class Troops implements Serializable {
 
-	   
+	@GeneratedValue(strategy = GenerationType.TABLE)   
 	@Id
 	private Long id;
 	private String code;
 	private String name;
 	private String comment;
 	
-	private Date start;
-	private Date end;
-	private Troops child;
-	private Troops father;
-	
-	public Troops getChild() {
-		return child;
-	}
-	public void setChild(Troops child) {
-		this.child = child;
-	}
-	public Troops getFather() {
-		return father;
-	}
-	public void setFather(Troops father) {
-		this.father = father;
-	}
+	private String startdate;
+	private String enddate;
 	
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	private Location location;
+	
 	@ManyToOne
-	private Guard guard;
+	private Troops childTroops;
+	@ManyToOne
+	private Troops fatherTroops;
+	@OneToMany(mappedBy = "troops")
+	private Collection<Guard> guard;
+	
 	public Troops() {
 		super();
-	}   
+	} 
+	
 	public Long getId() {
 		return this.id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
-	}
-	public Location getLocation() {
-	    return location;
-	}
-	public void setLocation(Location param) {
-	    this.location = param;
 	}
 	public String getCode() {
 		return code;
@@ -84,23 +72,52 @@ public class Troops implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Date getStart() {
-		return start;
+	public Location getLocation() {
+	    return location;
 	}
-	public void setStart(Date start) {
-		this.start = start;
+	public void setLocation(Location param) {
+	    this.location = param;
 	}
-	public Date getEnd() {
-		return end;
+
+	public String getStartdate() {
+		return startdate;
 	}
-	public void setEnd(Date end) {
-		this.end = end;
+
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
 	}
-	public Guard getGuard() {
+
+	public String getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
+
+	public Troops getChildTroops() {
+	    return childTroops;
+	}
+
+	public void setChildTroops(Troops param) {
+	    this.childTroops = param;
+	}
+
+	public Troops getFatherTroops() {
+	    return fatherTroops;
+	}
+
+	public void setFatherTroops(Troops param) {
+	    this.fatherTroops = param;
+	}
+
+	public Collection<Guard> getGuard() {
 	    return guard;
 	}
-	public void setGuard(Guard param) {
+
+	public void setGuard(Collection<Guard> param) {
 	    this.guard = param;
 	}
+
 
 }

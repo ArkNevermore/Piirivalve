@@ -2,42 +2,9 @@
 	<entity>
 		<entity-name>ee.piirivalve.entities.BorderSection</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>246</entity-height>
-		<entity-X-Coordinate>420</entity-X-Coordinate>
-		<entity-Y-Coordinate>360</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>ee.piirivalve.entities.CrossingPoint</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>266</entity-height>
-		<entity-X-Coordinate>780</entity-X-Coordinate>
-		<entity-Y-Coordinate>20</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>ee.piirivalve.entities.Guard</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>186</entity-height>
-		<entity-X-Coordinate>430</entity-X-Coordinate>
-		<entity-Y-Coordinate>14</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>ee.piirivalve.entities.Troops</entity-name>
-		<entity-width>120</entity-width>
 		<entity-height>286</entity-height>
-		<entity-X-Coordinate>161</entity-X-Coordinate>
-		<entity-Y-Coordinate>91</entity-Y-Coordinate>
+		<entity-X-Coordinate>437</entity-X-Coordinate>
+		<entity-Y-Coordinate>420</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -47,8 +14,19 @@
 		<entity-name>ee.piirivalve.entities.Manager</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>146</entity-height>
-		<entity-X-Coordinate>840</entity-X-Coordinate>
-		<entity-Y-Coordinate>420</entity-Y-Coordinate>
+		<entity-X-Coordinate>910</entity-X-Coordinate>
+		<entity-Y-Coordinate>519</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>ee.piirivalve.entities.Guard</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>186</entity-height>
+		<entity-X-Coordinate>542</entity-X-Coordinate>
+		<entity-Y-Coordinate>87</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -58,8 +36,30 @@
 		<entity-name>ee.piirivalve.entities.Location</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>146</entity-height>
-		<entity-X-Coordinate>143</entity-X-Coordinate>
-		<entity-Y-Coordinate>460</entity-Y-Coordinate>
+		<entity-X-Coordinate>42</entity-X-Coordinate>
+		<entity-Y-Coordinate>540</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>ee.piirivalve.entities.CrossingPoint</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>306</entity-height>
+		<entity-X-Coordinate>959</entity-X-Coordinate>
+		<entity-Y-Coordinate>11</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>ee.piirivalve.entities.Troops</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>286</entity-height>
+		<entity-X-Coordinate>130</entity-X-Coordinate>
+		<entity-Y-Coordinate>60</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

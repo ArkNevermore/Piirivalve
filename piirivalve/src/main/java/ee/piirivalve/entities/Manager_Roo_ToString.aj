@@ -5,15 +5,13 @@ package ee.piirivalve.entities;
 
 import java.lang.String;
 
-privileged aspect Guard_Roo_ToString {
+privileged aspect Manager_Roo_ToString {
     
-    public String Guard.toString() {
+    public String Manager.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("BorderSection: ").append(getBorderSection() == null ? "null" : getBorderSection().size()).append(", ");
-        sb.append("CrossingPoint: ").append(getCrossingPoint() == null ? "null" : getCrossingPoint().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Troops: ").append(getTroops()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }
