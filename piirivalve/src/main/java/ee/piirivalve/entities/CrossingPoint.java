@@ -1,18 +1,19 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Guard;
-import javax.persistence.ManyToOne;
+import ee.piirivalve.entities.Troops;
 
 /**
  * Entity implementation class for Entity: CrossingPoint
@@ -40,11 +41,14 @@ public class CrossingPoint implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	@OneToMany(mappedBy = "crossingPoints")
-	private Collection<BorderSection> borderSection;
+	@ManyToOne
+	private BorderSection borderSection;
+
+	@OneToMany(mappedBy = "crossingPoint")
+	private Collection<Guard> guard;
 
 	@ManyToOne
-	private Guard guard;
+	private Troops troops;
 
 	public CrossingPoint() {
 		super();
@@ -73,18 +77,6 @@ public class CrossingPoint implements Serializable {
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
-	}
-	public Collection<BorderSection> getBorderSection() {
-	    return borderSection;
-	}
-	public void setBorderSection(Collection<BorderSection> param) {
-	    this.borderSection = param;
-	}
-	public Guard getGuard() {
-	    return guard;
-	}
-	public void setGuard(Guard param) {
-	    this.guard = param;
 	}
 	public String getLongitude() {
 		return longitude;
@@ -115,6 +107,33 @@ public class CrossingPoint implements Serializable {
 	}
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
+	}
+	public BorderSection getBorderSection() {
+	    return borderSection;
+	}
+	public void setBorderSection(BorderSection param) {
+	    this.borderSection = param;
+	}
+	public Collection<Guard> getGuard() {
+	    return guard;
+	}
+	public void setGuard(Collection<Guard> param) {
+		if(param==null) {
+			this.guard = new ArrayList<Guard>();
+			} else {
+				this.guard = param;
+			}
+			for(Guard g : this.guard) {
+				if (g.getCrossingPoint() != this) {
+					g.setCrossingPoint(this);
+			}			
+		}
+	}
+	public Troops getTroops() {
+	    return troops;
+	}
+	public void setTroops(Troops param) {
+	    this.troops = param;
 	}
    
 	

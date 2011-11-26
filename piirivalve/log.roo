@@ -11,3 +11,9 @@ web mvc setup
 web mvc all --package ~.web
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-26 21:29:53
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-26 21:31:37
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-26 21:49:19
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-26 21:53:42
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-26 23:49:26
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-26 23:52:42
+web mvc controller --class ~.web.ReportController
+web mvc all --package ~.web

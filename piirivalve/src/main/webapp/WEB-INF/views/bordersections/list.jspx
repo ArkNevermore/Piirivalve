@@ -7,9 +7,9 @@
             <table:column id="c_ee_piirivalve_entities_BorderSection_code" property="code" z="v6tEU+k+Zyak+8T52Vn39OLaGHk="/>
             <table:column id="c_ee_piirivalve_entities_BorderSection_name" property="name" z="vSN+XamJilYRdiWZM6B7FiWVvL0="/>
             <table:column id="c_ee_piirivalve_entities_BorderSection_comment" property="comment" z="tsQZkRH3UE91hoGFv3oe6pInAmw="/>
-            <table:column id="c_ee_piirivalve_entities_BorderSection_crossingPoints" property="crossingPoints" z="UervNrD2UXlRyQAhwxRalf00Glk="/>
-            <table:column id="c_ee_piirivalve_entities_BorderSection_guard" property="guard" z="Rg30ubxAVimloYLdpE6pQE8GbjA="/>
             <table:column id="c_ee_piirivalve_entities_BorderSection_longitude" property="longitude" z="uxkcUpNDfSSNt0T+0n8DKUTRQWI="/>
+            <table:column id="c_ee_piirivalve_entities_BorderSection_latitude" property="latitude" z="Thw/dEklvj5bsDoYbTgz5OL/k84="/>
+            <table:column id="c_ee_piirivalve_entities_BorderSection_height" property="height" z="Tvyit8Q38nQnKURmEYKHEi8SwaE="/>
         </table:table>
     </page:list>
 </div>

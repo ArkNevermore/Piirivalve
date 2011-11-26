@@ -6,6 +6,7 @@ package ee.itcollege.piirivalve.web;
 import ee.piirivalve.entities.BorderSection;
 import ee.piirivalve.entities.CrossingPoint;
 import ee.piirivalve.entities.Guard;
+import ee.piirivalve.entities.Troops;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -101,6 +102,11 @@ privileged aspect CrossingPointController_Roo_Controller {
     @ModelAttribute("guards")
     public Collection<Guard> CrossingPointController.populateGuards() {
         return Guard.findAllGuards();
+    }
+    
+    @ModelAttribute("troopses")
+    public Collection<Troops> CrossingPointController.populateTroopses() {
+        return Troops.findAllTroopses();
     }
     
     String CrossingPointController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

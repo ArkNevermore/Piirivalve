@@ -25,8 +25,30 @@
 		<entity-name>ee.piirivalve.entities.Guard</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>186</entity-height>
-		<entity-X-Coordinate>542</entity-X-Coordinate>
-		<entity-Y-Coordinate>87</entity-Y-Coordinate>
+		<entity-X-Coordinate>461</entity-X-Coordinate>
+		<entity-Y-Coordinate>12</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>ee.piirivalve.entities.ChildTroops</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>108</entity-height>
+		<entity-X-Coordinate>252</entity-X-Coordinate>
+		<entity-Y-Coordinate>430</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>ee.piirivalve.entities.CrossingPoint</entity-name>
+		<entity-width>211</entity-width>
+		<entity-height>326</entity-height>
+		<entity-X-Coordinate>1051</entity-X-Coordinate>
+		<entity-Y-Coordinate>59</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -44,20 +66,9 @@
 	</entity>
 
 	<entity>
-		<entity-name>ee.piirivalve.entities.CrossingPoint</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>306</entity-height>
-		<entity-X-Coordinate>959</entity-X-Coordinate>
-		<entity-Y-Coordinate>11</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
 		<entity-name>ee.piirivalve.entities.Troops</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>286</entity-height>
+		<entity-height>306</entity-height>
 		<entity-X-Coordinate>130</entity-X-Coordinate>
 		<entity-Y-Coordinate>60</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>

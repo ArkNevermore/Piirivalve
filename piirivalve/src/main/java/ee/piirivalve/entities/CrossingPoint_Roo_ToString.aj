@@ -9,17 +9,18 @@ privileged aspect CrossingPoint_Roo_ToString {
     
     public String CrossingPoint.toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("BorderSection: ").append(getBorderSection() == null ? "null" : getBorderSection().size()).append(", ");
+        sb.append("BorderSection: ").append(getBorderSection()).append(", ");
         sb.append("Code: ").append(getCode()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
         sb.append("Enddate: ").append(getEnddate()).append(", ");
-        sb.append("Guard: ").append(getGuard()).append(", ");
+        sb.append("Guard: ").append(getGuard() == null ? "null" : getGuard().size()).append(", ");
         sb.append("Height: ").append(getHeight()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Latitude: ").append(getLatitude()).append(", ");
         sb.append("Longitude: ").append(getLongitude()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Startdate: ").append(getStartdate()).append(", ");
+        sb.append("Troops: ").append(getTroops()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

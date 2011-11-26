@@ -1,18 +1,19 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Guard;
-import java.util.Collection;
-import javax.persistence.OneToMany;
+import ee.piirivalve.entities.ChildTroops;
 
 /**
  * Entity implementation class for Entity: Troops
@@ -35,15 +36,15 @@ public class Troops implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
-	private Location location;
-	
-	@ManyToOne
-	private Troops childTroops;
-	@ManyToOne
 	private Troops fatherTroops;
+	@ManyToOne
+	private Location location;
 	@OneToMany(mappedBy = "troops")
 	private Collection<Guard> guard;
-	
+	@OneToMany(mappedBy = "troops")
+	private Collection<CrossingPoint> crossingPoint;
+	@OneToMany(mappedBy = "troops")
+	private Collection<ChildTroops> childTroops;
 	public Troops() {
 		super();
 	} 
@@ -72,13 +73,6 @@ public class Troops implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Location getLocation() {
-	    return location;
-	}
-	public void setLocation(Location param) {
-	    this.location = param;
-	}
-
 	public String getStartdate() {
 		return startdate;
 	}
@@ -94,15 +88,7 @@ public class Troops implements Serializable {
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
-
-	public Troops getChildTroops() {
-	    return childTroops;
-	}
-
-	public void setChildTroops(Troops param) {
-	    this.childTroops = param;
-	}
-
+	
 	public Troops getFatherTroops() {
 	    return fatherTroops;
 	}
@@ -111,12 +97,46 @@ public class Troops implements Serializable {
 	    this.fatherTroops = param;
 	}
 
+	public Location getLocation() {
+	    return location;
+	}
+
+	public void setLocation(Location param) {
+	    this.location = param;
+	}
+
 	public Collection<Guard> getGuard() {
 	    return guard;
 	}
 
 	public void setGuard(Collection<Guard> param) {
 	    this.guard = param;
+	}
+
+	public Collection<CrossingPoint> getCrossingPoint() {
+	    return crossingPoint;
+	}
+
+	public void setCrossingPoint(Collection<CrossingPoint> param) {
+	    this.crossingPoint = param;
+	}
+
+	public Collection<ChildTroops> getChildTroops() {
+	    return childTroops;
+	}
+
+	public void setChildTroops(Collection<ChildTroops> param) {
+	//	  this.childTroops = param;
+		if(param==null) {
+			this.childTroops = new ArrayList<ChildTroops>();
+			} else {
+				this.childTroops = param;
+			}
+			for(ChildTroops c : this.childTroops) {
+				if (c.getTroops() != this) {
+					c.setTroops(this);
+			}			
+		}
 	}
 
 

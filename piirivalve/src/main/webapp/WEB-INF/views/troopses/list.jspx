@@ -7,9 +7,9 @@
             <table:column id="c_ee_piirivalve_entities_Troops_code" property="code" z="hwGwxuvNCqoUo+9gRQAAe8UAvJ0="/>
             <table:column id="c_ee_piirivalve_entities_Troops_name" property="name" z="qr5ABH6lw1ohVKBWmqbcGL2HRYM="/>
             <table:column id="c_ee_piirivalve_entities_Troops_comment" property="comment" z="rOotzRr5DNehUy3asvazOdsbLqM="/>
-            <table:column id="c_ee_piirivalve_entities_Troops_guard" property="guard" z="K7K3AoBTUgP2dQrWc0qNqqcZlIw="/>
-            <table:column id="c_ee_piirivalve_entities_Troops_location" property="location" z="k60JbHObthwlDXHHdtmHY4z0PtY="/>
             <table:column id="c_ee_piirivalve_entities_Troops_startdate" property="startdate" z="v9L1jwTjjrr6zrSpCZdcVYj+ipk="/>
+            <table:column id="c_ee_piirivalve_entities_Troops_enddate" property="enddate" z="4kIkyaLBphMNZta2WslnZgr3MLA="/>
+            <table:column id="c_ee_piirivalve_entities_Troops_fatherTroops" property="fatherTroops" z="ZhLU6yfTn/qCkPDMjkHr/RYWhpg="/>
         </table:table>
     </page:list>
 </div>

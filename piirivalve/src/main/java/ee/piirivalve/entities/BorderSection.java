@@ -1,16 +1,19 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Manager;
+import ee.piirivalve.entities.Guard;
 
 /**
  * Entity implementation class for Entity: BorderSection
@@ -34,14 +37,11 @@ public class BorderSection implements Serializable {
 	private String height;
 	
 	@ManyToOne
-	private CrossingPoint crossingPoints;
-	
-	@ManyToOne
-	private Guard guard;
-	
-	@ManyToOne
 	private Manager manager;
-	
+	@OneToMany(mappedBy = "borderSection")
+	private Collection<CrossingPoint> crossingPoint;
+	@OneToMany(mappedBy = "borderSection")
+	private Collection<Guard> guard;
 	public String getCode() {
 		return code;
 	}
@@ -70,18 +70,6 @@ public class BorderSection implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public CrossingPoint getCrossingPoints() {
-	    return crossingPoints;
-	}
-	public void setCrossingPoints(CrossingPoint param) {
-	    this.crossingPoints = param;
-	}
-	public Guard getGuard() {
-	    return guard;
-	}
-	public void setGuard(Guard param) {
-	    this.guard = param;
-	}
 	public String getLongitude() {
 		return longitude;
 	}
@@ -106,6 +94,26 @@ public class BorderSection implements Serializable {
 	public void setManager(Manager param) {
 	    this.manager = param;
 	}
-   
+	public Collection<CrossingPoint> getCrossingPoint() {
+	    return crossingPoint;
+	}
+	public void setCrossingPoint(Collection<CrossingPoint> param) {
+	    this.crossingPoint = param;
+	}
+	public Collection<Guard> getGuard() {
+	    return guard;
+	}
+	public void setGuard(Collection<Guard> param) {
+		if(param==null) {
+			this.guard = new ArrayList<Guard>();
+			} else {
+				this.guard = param;
+			}
+			for(Guard g : this.guard) {
+				if (g.getBorderSection() != this) {
+					g.setBorderSection(this);
+			}			
+		}
+	}
 	
 }

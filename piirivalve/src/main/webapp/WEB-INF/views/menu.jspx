@@ -27,5 +27,12 @@
             <menu:item id="i_crossingpoint_new" messageCode="global_menu_new" url="/crossingpoints?form" z="Wx8mMy3Gr8VzPzh+1ZxTK6DZy+4="/>
             <menu:item id="i_crossingpoint_list" messageCode="global_menu_list" url="/crossingpoints?page=1&amp;size=${empty param.size ? 10 : param.size}" z="CgCD3dbP5Rj8gJZNtEzNAwYnQ0s="/>
         </menu:category>
+        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
+            <menu:item id="i_controller__reportindex_id" messageCode="global_generic" url="/report/index" z="AYhpbeiRbISRIGCNehjiesaqS3M="/>
+        </menu:category>
+        <menu:category id="c_childtroops" z="IEcq4UEou7+BN/M/r+xLUluIIQI=">
+            <menu:item id="i_childtroops_new" messageCode="global_menu_new" url="/childtroopses?form" z="KEDS2MPaPJReGKbdVY8SDCPIzLY="/>
+            <menu:item id="i_childtroops_list" messageCode="global_menu_list" url="/childtroopses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="rkOBHQHDC3V2KhgBWkU64+A2jrQ="/>
+        </menu:category>
     </menu:menu>
 </div>

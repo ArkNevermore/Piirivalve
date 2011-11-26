@@ -3,6 +3,8 @@
 
 package ee.itcollege.piirivalve.web;
 
+import ee.piirivalve.entities.ChildTroops;
+import ee.piirivalve.entities.CrossingPoint;
 import ee.piirivalve.entities.Guard;
 import ee.piirivalve.entities.Location;
 import ee.piirivalve.entities.Troops;
@@ -86,6 +88,16 @@ privileged aspect TroopsController_Roo_Controller {
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/troopses";
+    }
+    
+    @ModelAttribute("childtroopses")
+    public Collection<ChildTroops> TroopsController.populateChildTroopses() {
+        return ChildTroops.findAllChildTroopses();
+    }
+    
+    @ModelAttribute("crossingpoints")
+    public Collection<CrossingPoint> TroopsController.populateCrossingPoints() {
+        return CrossingPoint.findAllCrossingPoints();
     }
     
     @ModelAttribute("guards")
