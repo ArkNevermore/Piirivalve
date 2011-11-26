@@ -8,38 +8,19 @@ import java.lang.Integer;
 import java.lang.Long;
 import java.util.List;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect BorderSection_Roo_Entity {
     
-    declare @type: BorderSection: @Entity;
-    
     @PersistenceContext
     transient EntityManager BorderSection.entityManager;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "_id")
-    private Long BorderSection._id;
     
     @Version
     @Column(name = "version")
     private Integer BorderSection.version;
-    
-    public Long BorderSection.get_id() {
-        return this._id;
-    }
-    
-    public void BorderSection.set_id(Long id) {
-        this._id = id;
-    }
     
     public Integer BorderSection.getVersion() {
         return this.version;
@@ -61,7 +42,7 @@ privileged aspect BorderSection_Roo_Entity {
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            BorderSection attached = BorderSection.findBorderSection(this._id);
+            BorderSection attached = BorderSection.findBorderSection(this.id);
             this.entityManager.remove(attached);
         }
     }
@@ -100,9 +81,9 @@ privileged aspect BorderSection_Roo_Entity {
         return entityManager().createQuery("SELECT o FROM BorderSection o", BorderSection.class).getResultList();
     }
     
-    public static BorderSection BorderSection.findBorderSection(Long _id) {
-        if (_id == null) return null;
-        return entityManager().find(BorderSection.class, _id);
+    public static BorderSection BorderSection.findBorderSection(Long id) {
+        if (id == null) return null;
+        return entityManager().find(BorderSection.class, id);
     }
     
     public static List<BorderSection> BorderSection.findBorderSectionEntries(int firstResult, int maxResults) {

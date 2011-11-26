@@ -8,38 +8,19 @@ import java.lang.Integer;
 import java.lang.Long;
 import java.util.List;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect CrossingPoint_Roo_Entity {
     
-    declare @type: CrossingPoint: @Entity;
-    
     @PersistenceContext
     transient EntityManager CrossingPoint.entityManager;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "_id")
-    private Long CrossingPoint._id;
     
     @Version
     @Column(name = "version")
     private Integer CrossingPoint.version;
-    
-    public Long CrossingPoint.get_id() {
-        return this._id;
-    }
-    
-    public void CrossingPoint.set_id(Long id) {
-        this._id = id;
-    }
     
     public Integer CrossingPoint.getVersion() {
         return this.version;
@@ -61,7 +42,7 @@ privileged aspect CrossingPoint_Roo_Entity {
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            CrossingPoint attached = CrossingPoint.findCrossingPoint(this._id);
+            CrossingPoint attached = CrossingPoint.findCrossingPoint(this.id);
             this.entityManager.remove(attached);
         }
     }
@@ -100,9 +81,9 @@ privileged aspect CrossingPoint_Roo_Entity {
         return entityManager().createQuery("SELECT o FROM CrossingPoint o", CrossingPoint.class).getResultList();
     }
     
-    public static CrossingPoint CrossingPoint.findCrossingPoint(Long _id) {
-        if (_id == null) return null;
-        return entityManager().find(CrossingPoint.class, _id);
+    public static CrossingPoint CrossingPoint.findCrossingPoint(Long id) {
+        if (id == null) return null;
+        return entityManager().find(CrossingPoint.class, id);
     }
     
     public static List<CrossingPoint> CrossingPoint.findCrossingPointEntries(int firstResult, int maxResults) {

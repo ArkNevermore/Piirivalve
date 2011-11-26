@@ -9,9 +9,15 @@ privileged aspect BorderSection_Roo_ToString {
     
     public String BorderSection.toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("Code: ").append(getCode()).append(", ");
+        sb.append("Comment: ").append(getComment()).append(", ");
+        sb.append("Coordinates: ").append(getCoordinates()).append(", ");
+        sb.append("CrossingPoints: ").append(getCrossingPoints()).append(", ");
+        sb.append("Guard: ").append(getGuard()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
-        sb.append("Version: ").append(getVersion()).append(", ");
-        sb.append("_id: ").append(get_id());
+        sb.append("Manager: ").append(getManager()).append(", ");
+        sb.append("Name: ").append(getName()).append(", ");
+        sb.append("Version: ").append(getVersion());
         return sb.toString();
     }
     

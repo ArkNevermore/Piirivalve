@@ -9,7 +9,10 @@ privileged aspect Guard_Roo_ToString {
     
     public String Guard.toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("BorderSection: ").append(getBorderSection() == null ? "null" : getBorderSection().size()).append(", ");
+        sb.append("CrossingPoint: ").append(getCrossingPoint() == null ? "null" : getCrossingPoint().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Name: ").append(getName()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("_id: ").append(get_id());
         return sb.toString();

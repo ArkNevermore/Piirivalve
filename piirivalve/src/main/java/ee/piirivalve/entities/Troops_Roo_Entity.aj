@@ -8,38 +8,19 @@ import java.lang.Integer;
 import java.lang.Long;
 import java.util.List;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect Troops_Roo_Entity {
     
-    declare @type: Troops: @Entity;
-    
     @PersistenceContext
     transient EntityManager Troops.entityManager;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "_id")
-    private Long Troops._id;
     
     @Version
     @Column(name = "version")
     private Integer Troops.version;
-    
-    public Long Troops.get_id() {
-        return this._id;
-    }
-    
-    public void Troops.set_id(Long id) {
-        this._id = id;
-    }
     
     public Integer Troops.getVersion() {
         return this.version;
@@ -61,7 +42,7 @@ privileged aspect Troops_Roo_Entity {
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Troops attached = Troops.findTroops(this._id);
+            Troops attached = Troops.findTroops(this.id);
             this.entityManager.remove(attached);
         }
     }
@@ -100,9 +81,9 @@ privileged aspect Troops_Roo_Entity {
         return entityManager().createQuery("SELECT o FROM Troops o", Troops.class).getResultList();
     }
     
-    public static Troops Troops.findTroops(Long _id) {
-        if (_id == null) return null;
-        return entityManager().find(Troops.class, _id);
+    public static Troops Troops.findTroops(Long id) {
+        if (id == null) return null;
+        return entityManager().find(Troops.class, id);
     }
     
     public static List<Troops> Troops.findTroopsEntries(int firstResult, int maxResults) {
