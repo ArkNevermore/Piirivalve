@@ -8,38 +8,19 @@ import java.lang.Integer;
 import java.lang.Long;
 import java.util.List;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EntityManager;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
 
 privileged aspect Guard_Roo_Entity {
     
-    declare @type: Guard: @Entity;
-    
     @PersistenceContext
     transient EntityManager Guard.entityManager;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "_id")
-    private Long Guard._id;
     
     @Version
     @Column(name = "version")
     private Integer Guard.version;
-    
-    public Long Guard.get_id() {
-        return this._id;
-    }
-    
-    public void Guard.set_id(Long id) {
-        this._id = id;
-    }
     
     public Integer Guard.getVersion() {
         return this.version;
@@ -61,7 +42,7 @@ privileged aspect Guard_Roo_Entity {
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Guard attached = Guard.findGuard(this._id);
+            Guard attached = Guard.findGuard(this.id);
             this.entityManager.remove(attached);
         }
     }
@@ -100,9 +81,9 @@ privileged aspect Guard_Roo_Entity {
         return entityManager().createQuery("SELECT o FROM Guard o", Guard.class).getResultList();
     }
     
-    public static Guard Guard.findGuard(Long _id) {
-        if (_id == null) return null;
-        return entityManager().find(Guard.class, _id);
+    public static Guard Guard.findGuard(Long id) {
+        if (id == null) return null;
+        return entityManager().find(Guard.class, id);
     }
     
     public static List<Guard> Guard.findGuardEntries(int firstResult, int maxResults) {

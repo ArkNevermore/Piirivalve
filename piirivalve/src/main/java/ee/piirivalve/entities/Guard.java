@@ -1,15 +1,15 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
-import java.lang.Long;
+import java.util.Collection;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.CrossingPoint;
-import java.util.Collection;
-import ee.piirivalve.entities.BorderSection;
+import ee.piirivalve.entities.Troops;
 
 /**
  * Entity implementation class for Entity: Guard
@@ -36,7 +36,8 @@ public class Guard implements Serializable {
 	private Collection<CrossingPoint> crossingPoint;
 	@OneToMany(mappedBy = "guard")
 	private Collection<BorderSection> borderSection;
-
+	@OneToMany(mappedBy = "guard")
+	private Collection<Troops> troops;
 	public Guard() {
 		super();
 	}   
@@ -58,6 +59,12 @@ public class Guard implements Serializable {
 	}
 	public void setBorderSection(Collection<BorderSection> param) {
 	    this.borderSection = param;
+	}
+	public Collection<Troops> getTroops() {
+	    return troops;
+	}
+	public void setTroops(Collection<Troops> param) {
+	    this.troops = param;
 	}
    
 }

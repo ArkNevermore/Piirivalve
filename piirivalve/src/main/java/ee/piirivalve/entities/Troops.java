@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
+import ee.piirivalve.entities.Guard;
 
 /**
  * Entity implementation class for Entity: Troops
@@ -47,6 +48,8 @@ public class Troops implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	private Location location;
+	@ManyToOne
+	private Guard guard;
 	public Troops() {
 		super();
 	}   
@@ -92,6 +95,12 @@ public class Troops implements Serializable {
 	}
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+	public Guard getGuard() {
+	    return guard;
+	}
+	public void setGuard(Guard param) {
+	    this.guard = param;
 	}
 
 }

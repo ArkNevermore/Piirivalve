@@ -24,7 +24,7 @@
 	<entity>
 		<entity-name>ee.piirivalve.entities.Guard</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>166</entity-height>
+		<entity-height>186</entity-height>
 		<entity-X-Coordinate>430</entity-X-Coordinate>
 		<entity-Y-Coordinate>14</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
@@ -35,7 +35,7 @@
 	<entity>
 		<entity-name>ee.piirivalve.entities.Troops</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>266</entity-height>
+		<entity-height>286</entity-height>
 		<entity-X-Coordinate>161</entity-X-Coordinate>
 		<entity-Y-Coordinate>91</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>

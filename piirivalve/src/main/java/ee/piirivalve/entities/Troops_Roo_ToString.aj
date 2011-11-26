@@ -12,6 +12,7 @@ privileged aspect Troops_Roo_ToString {
         sb.append("Code: ").append(getCode()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
         sb.append("End: ").append(getEnd()).append(", ");
+        sb.append("Guard: ").append(getGuard()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Location: ").append(getLocation()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
