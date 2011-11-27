@@ -4,8 +4,6 @@
 package ee.itcollege.piirivalve.web;
 
 import ee.piirivalve.entities.BorderGuard;
-import ee.piirivalve.entities.BorderSection;
-import ee.piirivalve.entities.CrossingPoint;
 import ee.piirivalve.entities.Guard;
 import ee.piirivalve.entities.Troops;
 import java.io.UnsupportedEncodingException;
@@ -93,16 +91,6 @@ privileged aspect GuardController_Roo_Controller {
     @ModelAttribute("borderguards")
     public Collection<BorderGuard> GuardController.populateBorderGuards() {
         return BorderGuard.findAllBorderGuards();
-    }
-    
-    @ModelAttribute("bordersections")
-    public Collection<BorderSection> GuardController.populateBorderSections() {
-        return BorderSection.findAllBorderSections();
-    }
-    
-    @ModelAttribute("crossingpoints")
-    public Collection<CrossingPoint> GuardController.populateCrossingPoints() {
-        return CrossingPoint.findAllCrossingPoints();
     }
     
     @ModelAttribute("guards")

@@ -39,7 +39,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.BorderSectionConverter implements Converter<BorderSection, String> {
         public String convert(BorderSection borderSection) {
         	return borderSection.getName();
-            //return new StringBuilder().append(borderSection.getCode()).append(" ").append(borderSection.getName()).append(" ").append(borderSection.getComment()).append(" ").append(borderSection.getLongitude()).toString();
+            //return new StringBuilder().append(borderSection.getCode()).append(" ").append(borderSection.getName()).append(" ").append(borderSection.getComment()).append(" ").append(borderSection.getCoordinates()).toString();
         }
         
     }

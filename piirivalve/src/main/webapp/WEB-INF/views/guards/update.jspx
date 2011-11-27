@@ -5,7 +5,6 @@
     <form:update id="fu_ee_piirivalve_entities_Guard" modelAttribute="guard" path="/guards" versionField="Version" z="LVla5+6mlkwBkcSkQPHhP5riFtk=">
         <field:input field="name" id="c_ee_piirivalve_entities_Guard_name" z="AadqXuganUBylde311fJrkngpu8="/>
         <field:select field="troops" id="c_ee_piirivalve_entities_Guard_troops" itemValue="id" items="${troopses}" path="/troopses" z="IZ1R9Z7E2HD9frtxcB9aEYrsn4w="/>
-        <field:simple field="borderGuards" id="c_ee_piirivalve_entities_Guard_borderGuards" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard" z="hXwpQtAbvCK05A5ECuBvySWVAxc="/>
-        <field:select field="crossingPoint" id="c_ee_piirivalve_entities_Guard_crossingPoint" itemValue="id" items="${crossingpoints}" path="/crossingpoints" z="9pQYtuYfnVF6B1UbnEDn33tXJ10="/>
+        <!--<field:simple field="borderGuards" id="c_ee_piirivalve_entities_Guard_borderGuards" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Guard" z="hXwpQtAbvCK05A5ECuBvySWVAxc="/>-->
     </form:update>
 </div>

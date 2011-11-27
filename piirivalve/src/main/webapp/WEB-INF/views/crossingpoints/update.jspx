@@ -12,7 +12,7 @@
         <field:input field="startdate" id="c_ee_piirivalve_entities_CrossingPoint_startdate" z="PTjh/fTUlOieYutpGRA7PLHucEM="/>
         <field:input field="enddate" id="c_ee_piirivalve_entities_CrossingPoint_enddate" z="tHuHKy5VKfA0G4p+Q3u4D2QRXrc="/>
         <field:select field="borderSection" id="c_ee_piirivalve_entities_CrossingPoint_borderSection" itemValue="id" items="${bordersections}" path="/bordersections" z="v43IXhzaPodE3HG9ASBYhIRBFQY="/>
+        <field:select field="guard" id="c_ee_piirivalve_entities_CrossingPoint_guard" itemValue="id" items="${troop_guards}" multiple="true" path="/guards" z="user-managed"/>
         <field:select field="troops" id="c_ee_piirivalve_entities_CrossingPoint_troops" itemValue="id" items="${troopses}" path="/troopses" z="tAWXAO6hqHKqxAi2HyQ1Z0YHJ6Q="/>
-        <springform:checkboxes element="div" itemValue="id" items="${guards}" path="name"/>
     </form:update>
 </div>

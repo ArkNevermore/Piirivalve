@@ -12,8 +12,8 @@
         <field:input field="startdate" id="c_ee_piirivalve_entities_CrossingPoint_startdate" z="PTjh/fTUlOieYutpGRA7PLHucEM="/>
         <field:input field="enddate" id="c_ee_piirivalve_entities_CrossingPoint_enddate" z="tHuHKy5VKfA0G4p+Q3u4D2QRXrc="/>
         <field:select field="borderSection" id="c_ee_piirivalve_entities_CrossingPoint_borderSection" itemValue="id" items="${bordersections}" path="/bordersections" z="v43IXhzaPodE3HG9ASBYhIRBFQY="/>
+       <!--<field:select field="guard" id="c_ee_piirivalve_entities_CrossingPoint_guard" itemValue="id" items="${guards}" multiple="true" path="/guards" z="ZnkRlTrM3tl6H2Pq0zG3E1cd5ig="/>-->
         <field:select field="troops" id="c_ee_piirivalve_entities_CrossingPoint_troops" itemValue="id" items="${troopses}" path="/troopses" z="tAWXAO6hqHKqxAi2HyQ1Z0YHJ6Q="/>
-        <field:simple field="guard" id="c_ee_piirivalve_entities_CrossingPoint_guard" messageCode="entity_reference_not_managed" messageCodeAttribute="Guard" z="68flZqFpdTFo/V7RpIcqjeYfSWE="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_piirivalve_entities_CrossingPoint" render="${not empty dependencies}" z="yfGrJUd37/7ao4L0FhRTi5TneAo="/>
 </div>

@@ -19,8 +19,8 @@ public class BorderSectionController {
 	
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("borderSection", BorderSection.findBorderSection(id));
-        uiModel.addAttribute("guards", BorderSection.findBorderSection(id).getGuard());
+    	uiModel.addAttribute("troop_guards", BorderSection.findBorderSection(id).getTroops().getGuard());
+    	uiModel.addAttribute("borderSection", BorderSection.findBorderSection(id));
         return "bordersections/update";
     }
     

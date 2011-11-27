@@ -2,9 +2,9 @@
 	<entity>
 		<entity-name>ee.piirivalve.entities.BorderSection</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>286</entity-height>
-		<entity-X-Coordinate>545</entity-X-Coordinate>
-		<entity-Y-Coordinate>344</entity-Y-Coordinate>
+		<entity-height>246</entity-height>
+		<entity-X-Coordinate>501</entity-X-Coordinate>
+		<entity-Y-Coordinate>410</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -13,9 +13,9 @@
 	<entity>
 		<entity-name>ee.piirivalve.entities.Guard</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>206</entity-height>
-		<entity-X-Coordinate>461</entity-X-Coordinate>
-		<entity-Y-Coordinate>12</entity-Y-Coordinate>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>509</entity-X-Coordinate>
+		<entity-Y-Coordinate>10</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -47,8 +47,8 @@
 		<entity-name>ee.piirivalve.entities.BorderGuard</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>146</entity-height>
-		<entity-X-Coordinate>700</entity-X-Coordinate>
-		<entity-Y-Coordinate>255</entity-Y-Coordinate>
+		<entity-X-Coordinate>691</entity-X-Coordinate>
+		<entity-Y-Coordinate>305</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

@@ -11,12 +11,10 @@ privileged aspect BorderSection_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Code: ").append(getCode()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
+        sb.append("Coordinates: ").append(getCoordinates()).append(", ");
         sb.append("CrossingPoint: ").append(getCrossingPoint() == null ? "null" : getCrossingPoint().size()).append(", ");
         sb.append("Guard: ").append(getGuard() == null ? "null" : getGuard().size()).append(", ");
-        sb.append("Height: ").append(getHeight()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
-        sb.append("Latitude: ").append(getLatitude()).append(", ");
-        sb.append("Longitude: ").append(getLongitude()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Troops: ").append(getTroops()).append(", ");
         sb.append("Version: ").append(getVersion());

@@ -6,10 +6,9 @@
         <field:input field="code" id="c_ee_piirivalve_entities_BorderSection_code" z="NNa8BB1ZluUMCeXeUnuSqPDqxpM="/>
         <field:input field="name" id="c_ee_piirivalve_entities_BorderSection_name" z="C73nxRP7TQTX+qWYmH4FCKy9Adc="/>
         <field:input field="comment" id="c_ee_piirivalve_entities_BorderSection_comment" z="opW4SmQHMGB67UwNmYgkA2MjWxo="/>
-        <field:input field="longitude" id="c_ee_piirivalve_entities_BorderSection_longitude" z="tl7cA3WfwIh7iM9ybbyCah9Hr5A="/>
-        <field:input field="latitude" id="c_ee_piirivalve_entities_BorderSection_latitude" z="ESiDc9cyC3lYwEiTeyLGvvxMhJY="/>
-        <field:input field="height" id="c_ee_piirivalve_entities_BorderSection_height" z="x1chZVe+QQwjwcrECdL0FB/u+aw="/>
+        <field:input field="coordinates" id="c_ee_piirivalve_entities_BorderSection_coordinates" z="Tvxr3FUy/VD7vN7zvmyP9UbSMrg="/>
         <field:select field="troops" id="c_ee_piirivalve_entities_BorderSection_troops" itemValue="id" items="${troopses}" path="/troopses" z="EZvGDpOrscI6OY80W+xwgtGdQNc="/>
-   		<springform:checkboxes element="div" itemValue="id" items="${guards}" path="name"/>
+        <!--<field:simple field="crossingPoint" id="c_ee_piirivalve_entities_BorderSection_crossingPoint" messageCode="entity_reference_not_managed" messageCodeAttribute="Crossing Point" z="TjpXNvIndyMJsh1td9o71/JPfXA="/>-->
+        <field:select field="guard" id="c_ee_piirivalve_entities_BorderSection_guard" itemValue="id" items="${troop_guards}" multiple="true" path="/guards" z="user-managed"/>
     </form:update>
 </div>

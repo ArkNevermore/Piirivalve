@@ -12,6 +12,7 @@
         <field:display field="startdate" id="s_ee_piirivalve_entities_CrossingPoint_startdate" object="${crossingpoint}" z="G9hVAiE0GCjWi7eGUUwVdjEYmf4="/>
         <field:display field="enddate" id="s_ee_piirivalve_entities_CrossingPoint_enddate" object="${crossingpoint}" z="7gaiSSQb/6mU0qM+xWxuXQKE5Xg="/>
         <field:display field="borderSection" id="s_ee_piirivalve_entities_CrossingPoint_borderSection" object="${crossingpoint}" z="DJa2W2WeFahC/yYVcCJjbfPIYyA="/>
+        <field:display field="guard" id="s_ee_piirivalve_entities_CrossingPoint_guard" object="${crossingpoint}" z="whpan+nC2Y3sjiZmKDsGdXCV49g="/>
         <field:display field="troops" id="s_ee_piirivalve_entities_CrossingPoint_troops" object="${crossingpoint}" z="yAPrpGd5QFNyTClsHGr4G3DA/c4="/>
     </page:show>
 </div>

@@ -1,6 +1,5 @@
 package ee.itcollege.piirivalve.web;
 
-
 import ee.piirivalve.entities.CrossingPoint;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
@@ -16,8 +15,7 @@ public class CrossingPointController {
 	
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String updateForm(@PathVariable("id") Long id, Model uiModel) {
-    	
-    	uiModel.addAttribute("guards", CrossingPoint.findCrossingPoint(id).getGuard());
+    	uiModel.addAttribute("troop_guards", CrossingPoint.findCrossingPoint(id).getTroops().getGuard());
         uiModel.addAttribute("crossingPoint", CrossingPoint.findCrossingPoint(id));
         return "crossingpoints/update";
     }
