@@ -20,3 +20,23 @@ web mvc all --package ~.web
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-27 01:03:31
 // Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-27 12:48:16
 web mvc all --package ~.web
+web mvc all --package ~.web
+// [failed] backup
+hint
+hint topics
+help fields
+hint topics fields
+web mvc update tags 
+web mvc all --package ~.web
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-27 14:47:28
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-27 14:47:58
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-27 17:17:35
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-27 17:20:58
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-27 17:34:43
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-27 17:35:09
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-27 17:50:25
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-27 17:51:15
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-27 18:07:41
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-27 18:08:30
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2011-11-27 18:24:23
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2011-11-27 18:30:45

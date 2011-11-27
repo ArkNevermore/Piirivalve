@@ -7,7 +7,6 @@
         <class>ee.piirivalve.entities.Guard</class>
         <class>ee.piirivalve.entities.Troops</class>
         <class>ee.piirivalve.entities.Location</class>
-        <class>ee.piirivalve.entities.ChildTroops</class>
         <class>ee.piirivalve.entities.BorderGuard</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
@@ -15,7 +14,7 @@
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
             <property name="hibernate.connection.charSet" value="UTF-8"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:D:\workspace\PiirivalveDB"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:D:\workspace\PvDB"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>

@@ -74,12 +74,6 @@ privileged aspect BorderSectionController_Roo_Controller {
         return "redirect:/bordersections/" + encodeUrlPathSegment(borderSection.getId().toString(), httpServletRequest);
     }
     
-    @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String BorderSectionController.updateForm(@PathVariable("id") Long id, Model uiModel) {
-        uiModel.addAttribute("borderSection", BorderSection.findBorderSection(id));
-        return "bordersections/update";
-    }
-    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String BorderSectionController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         BorderSection.findBorderSection(id).remove();

@@ -10,11 +10,11 @@ privileged aspect Troops_Roo_ToString {
     public String Troops.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("BorderSection: ").append(getBorderSection() == null ? "null" : getBorderSection().size()).append(", ");
-        sb.append("ChildTroops: ").append(getChildTroops() == null ? "null" : getChildTroops().size()).append(", ");
         sb.append("Code: ").append(getCode()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
         sb.append("CrossingPoint: ").append(getCrossingPoint() == null ? "null" : getCrossingPoint().size()).append(", ");
         sb.append("Enddate: ").append(getEnddate()).append(", ");
+        sb.append("Guard: ").append(getGuard() == null ? "null" : getGuard().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Location: ").append(getLocation()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");

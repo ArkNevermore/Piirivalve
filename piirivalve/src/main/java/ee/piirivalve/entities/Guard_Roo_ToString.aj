@@ -14,6 +14,7 @@ privileged aspect Guard_Roo_ToString {
         sb.append("CrossingPoint: ").append(getCrossingPoint()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
+        sb.append("Troops: ").append(getTroops()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }

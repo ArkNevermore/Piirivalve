@@ -1,19 +1,18 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Troops;
-import javax.persistence.ManyToOne;
+import ee.piirivalve.entities.Guard;
 
 /**
  * Entity implementation class for Entity: BorderSection
@@ -38,10 +37,10 @@ public class BorderSection implements Serializable {
 	
 	@OneToMany(mappedBy = "borderSection")
 	private Collection<CrossingPoint> crossingPoint;
-	@OneToMany(mappedBy = "borderSection")
-	private Collection<Guard> guard;
 	@ManyToOne
 	private Troops troops;
+	@OneToMany(mappedBy = "borderSection")
+	private Collection<Guard> guard;
 	public String getCode() {
 		return code;
 	}
@@ -94,26 +93,17 @@ public class BorderSection implements Serializable {
 	public void setCrossingPoint(Collection<CrossingPoint> param) {
 	    this.crossingPoint = param;
 	}
-	public Collection<Guard> getGuard() {
-	    return guard;
-	}
-	public void setGuard(Collection<Guard> param) {
-		if(param==null) {
-			this.guard = new ArrayList<Guard>();
-			} else {
-				this.guard = param;
-			}
-			for(Guard g : this.guard) {
-				if (g.getBorderSection() != this) {
-					g.setBorderSection(this);
-			}			
-		}
-	}
 	public Troops getTroops() {
 	    return troops;
 	}
 	public void setTroops(Troops param) {
 	    this.troops = param;
+	}
+	public Collection<Guard> getGuard() {
+	    return guard;
+	}
+	public void setGuard(Collection<Guard> param) {
+	    this.guard = param;
 	}
 	
 }

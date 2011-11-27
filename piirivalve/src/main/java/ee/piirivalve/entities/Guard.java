@@ -1,18 +1,18 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.BorderGuard;
-import java.util.Collection;
-import javax.persistence.OneToMany;
+import ee.piirivalve.entities.BorderSection;
 
 /**
  * Entity implementation class for Entity: Guard
@@ -35,14 +35,14 @@ public class Guard implements Serializable {
 		this.name = name;
 	}
 	private static final long serialVersionUID = 1L;
-	@ManyToOne
-	private BorderSection borderSection;
-	@ManyToOne
-	
-	private CrossingPoint crossingPoint;
 	@OneToMany(mappedBy = "guard")
 	private Collection<BorderGuard> borderGuards;
-	
+	@ManyToOne
+	private Troops troops;
+	@ManyToOne
+	private CrossingPoint crossingPoint;
+	@ManyToOne
+	private BorderSection borderSection;
 	public Guard() {
 		super();
 	}   
@@ -53,11 +53,17 @@ public class Guard implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public BorderSection getBorderSection() {
-	    return borderSection;
+	public Collection<BorderGuard> getBorderGuards() {
+	    return borderGuards;
 	}
-	public void setBorderSection(BorderSection param) {
-	    this.borderSection = param;
+	public void setBorderGuards(Collection<BorderGuard> param) {
+	    this.borderGuards = param;
+	}
+	public Troops getTroops() {
+	    return troops;
+	}
+	public void setTroops(Troops param) {
+	  this.troops = param;		
 	}
 	public CrossingPoint getCrossingPoint() {
 	    return crossingPoint;
@@ -65,11 +71,11 @@ public class Guard implements Serializable {
 	public void setCrossingPoint(CrossingPoint param) {
 	    this.crossingPoint = param;
 	}
-	public Collection<BorderGuard> getBorderGuards() {
-	    return borderGuards;
+	public BorderSection getBorderSection() {
+	    return borderSection;
 	}
-	public void setBorderGuards(Collection<BorderGuard> param) {
-	    this.borderGuards = param;
+	public void setBorderSection(BorderSection param) {
+	    this.borderSection = param;
 	}
-   
 }
+   

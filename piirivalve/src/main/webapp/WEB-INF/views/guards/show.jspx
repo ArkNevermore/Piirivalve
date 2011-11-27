@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_ee_piirivalve_entities_Guard" object="${guard}" path="/guards" z="AswWR152k/69shIYDaTMN7kARYM=">
         <field:display field="name" id="s_ee_piirivalve_entities_Guard_name" object="${guard}" z="czYQxeOR4Apfq0+MC5q9Hhjbv6o="/>
-        <field:display field="borderSection" id="s_ee_piirivalve_entities_Guard_borderSection" object="${guard}" z="kGeMAn5kUaJuXEV8kPfYunIeGDM="/>
+        <field:display field="troops" id="s_ee_piirivalve_entities_Guard_troops" object="${guard}" z="wLWtZlkmpgPQX9l3cZYN8lNJII0="/>
         <field:display field="crossingPoint" id="s_ee_piirivalve_entities_Guard_crossingPoint" object="${guard}" z="Ygwp3qPcFYsOCIhaqWvyNmbxG64="/>
     </page:show>
 </div>

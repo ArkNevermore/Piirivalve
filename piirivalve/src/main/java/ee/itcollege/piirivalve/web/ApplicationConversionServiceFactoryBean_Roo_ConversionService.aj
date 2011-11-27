@@ -46,7 +46,8 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.CrossingPointConverter implements Converter<CrossingPoint, String> {
         public String convert(CrossingPoint crossingPoint) {
-            return new StringBuilder().append(crossingPoint.getCode()).append(" ").append(crossingPoint.getName()).append(" ").append(crossingPoint.getComment()).append(" ").append(crossingPoint.getLongitude()).toString();
+        	return crossingPoint.getName();
+            //return new StringBuilder().append(crossingPoint.getCode()).append(" ").append(crossingPoint.getName()).append(" ").append(crossingPoint.getComment()).append(" ").append(crossingPoint.getLongitude()).toString();
         }
         
     }
@@ -67,8 +68,8 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.TroopsConverter implements Converter<Troops, String> {
         public String convert(Troops troops) {
-            //return new StringBuilder().append(troops.getCode()).append(" ").append(troops.getName()).append(" ").append(troops.getComment()).append(" ").append(troops.getStartdate()).toString();
         	return troops.getCode();
+            //return new StringBuilder().append(troops.getCode()).append(" ").append(troops.getName()).append(" ").append(troops.getComment()).append(" ").append(troops.getStartdate()).toString();
         }
         
     }

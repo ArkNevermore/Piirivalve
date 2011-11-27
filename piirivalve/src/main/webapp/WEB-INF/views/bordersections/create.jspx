@@ -10,7 +10,6 @@
         <field:input field="latitude" id="c_ee_piirivalve_entities_BorderSection_latitude" z="ESiDc9cyC3lYwEiTeyLGvvxMhJY="/>
         <field:input field="height" id="c_ee_piirivalve_entities_BorderSection_height" z="x1chZVe+QQwjwcrECdL0FB/u+aw="/>
         <field:simple field="crossingPoint" id="c_ee_piirivalve_entities_BorderSection_crossingPoint" messageCode="entity_reference_not_managed" messageCodeAttribute="Crossing Point" z="TjpXNvIndyMJsh1td9o71/JPfXA="/>
-        <field:simple field="guard" id="c_ee_piirivalve_entities_BorderSection_guard" messageCode="entity_reference_not_managed" messageCodeAttribute="Guard" z="FipL2uAuDPseP8/RrFIWj92OJeY="/>
         <field:select field="troops" id="c_ee_piirivalve_entities_BorderSection_troops" itemValue="id" items="${troopses}" path="/troopses" z="EZvGDpOrscI6OY80W+xwgtGdQNc="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_piirivalve_entities_BorderSection" render="${not empty dependencies}" z="zEYBB+WQ10vcjGfB5d21+lMHFRo="/>

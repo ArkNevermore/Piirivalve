@@ -6,7 +6,6 @@
         <field:input field="code" id="c_ee_piirivalve_entities_CrossingPoint_code" z="RA+3oswBfvw4G15sfW+F8Q9I4j8="/>
         <field:input field="name" id="c_ee_piirivalve_entities_CrossingPoint_name" z="noHehMEMB7Zn013a3LBQnJ65AfE="/>
         <field:input field="comment" id="c_ee_piirivalve_entities_CrossingPoint_comment" z="+KB1v+YufCdGgzBXJXnmg6/NUoI="/>
-        <field:simple field="guard" id="c_ee_piirivalve_entities_CrossingPoint_guard" messageCode="entity_reference_not_managed" messageCodeAttribute="Guard" z="68flZqFpdTFo/V7RpIcqjeYfSWE="/>
         <field:input field="longitude" id="c_ee_piirivalve_entities_CrossingPoint_longitude" z="hbnA1TBQw2iCk8VlKoNqn8My8xI="/>
         <field:input field="latitude" id="c_ee_piirivalve_entities_CrossingPoint_latitude" z="k9Ejwb/AEqv5BBHlgYnRlp0ruH8="/>
         <field:input field="height" id="c_ee_piirivalve_entities_CrossingPoint_height" z="uc1pxQSsJqx7h3B9OGVD93Ro6CE="/>
@@ -14,6 +13,7 @@
         <field:input field="enddate" id="c_ee_piirivalve_entities_CrossingPoint_enddate" z="tHuHKy5VKfA0G4p+Q3u4D2QRXrc="/>
         <field:select field="borderSection" id="c_ee_piirivalve_entities_CrossingPoint_borderSection" itemValue="id" items="${bordersections}" path="/bordersections" z="v43IXhzaPodE3HG9ASBYhIRBFQY="/>
         <field:select field="troops" id="c_ee_piirivalve_entities_CrossingPoint_troops" itemValue="id" items="${troopses}" path="/troopses" z="tAWXAO6hqHKqxAi2HyQ1Z0YHJ6Q="/>
+        <field:simple field="guard" id="c_ee_piirivalve_entities_CrossingPoint_guard" messageCode="entity_reference_not_managed" messageCodeAttribute="Guard" z="68flZqFpdTFo/V7RpIcqjeYfSWE="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_piirivalve_entities_CrossingPoint" render="${not empty dependencies}" z="yfGrJUd37/7ao4L0FhRTi5TneAo="/>
 </div>

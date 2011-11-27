@@ -1,7 +1,6 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -41,9 +40,9 @@ public class Troops implements Serializable {
 	@OneToMany(mappedBy = "troops")
 	private Collection<CrossingPoint> crossingPoint;
 	@OneToMany(mappedBy = "troops")
-	private Collection<ChildTroops> childTroops;
-	@OneToMany(mappedBy = "troops")
 	private Collection<BorderSection> borderSection;
+	@OneToMany(mappedBy = "troops")
+	private Collection<Guard> guard;
 	public Troops() {
 		super();
 	} 
@@ -112,24 +111,6 @@ public class Troops implements Serializable {
 	    this.crossingPoint = param;
 	}
 
-	public Collection<ChildTroops> getChildTroops() {
-	    return childTroops;
-	}
-
-	public void setChildTroops(Collection<ChildTroops> param) {
-	//	  this.childTroops = param;
-		if(param==null) {
-			this.childTroops = new ArrayList<ChildTroops>();
-			} else {
-				this.childTroops = param;
-			}
-			for(ChildTroops c : this.childTroops) {
-				if (c.getTroops() != this) {
-					c.setTroops(this);
-			}			
-		}
-	}
-
 	public Collection<BorderSection> getBorderSection() {
 	    return borderSection;
 	}
@@ -138,5 +119,27 @@ public class Troops implements Serializable {
 	    this.borderSection = param;
 	}
 
+	public Collection<Guard> getGuard() {
+	    return guard;
+	}
 
+    public void setGuard(Collection<Guard> guard) {
+    	manageRelations(this.guard, guard);
+        this.guard = guard;
+    }
+
+    private void manageRelations(Collection<Guard> oldGuard, Collection<Guard> newGuard) {
+        if(oldGuard != null) {
+            for(Guard g: oldGuard)
+                if(newGuard == null || !newGuard.contains(g))
+                    g.setTroops(null);
+        }
+
+        if(newGuard != null) {
+            for(Guard g: newGuard)
+                g.setTroops(this);
+        }
+    }
+	
+	
 }
