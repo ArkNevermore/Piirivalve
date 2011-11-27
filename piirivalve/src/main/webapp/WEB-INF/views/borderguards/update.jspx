@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_ee_piirivalve_entities_BorderGuard" modelAttribute="borderGuard" path="/borderguards" versionField="Version" z="oYq70XLiuynBV95X6EKIZvU7wg4=">
+        <field:input field="name" id="c_ee_piirivalve_entities_BorderGuard_name" z="ix/SjXy7nAC/Jiw9UUPYAj/1EXU="/>
+        <field:select field="guard" id="c_ee_piirivalve_entities_BorderGuard_guard" itemValue="id" items="${guards}" path="/guards" z="UwzTtoAXaKZASgWjIiKK8hqR8RI="/>
+    </form:update>
+</div>

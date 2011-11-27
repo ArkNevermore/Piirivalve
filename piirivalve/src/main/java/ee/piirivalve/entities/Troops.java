@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.ChildTroops;
 
 /**
  * Entity implementation class for Entity: Troops
@@ -40,11 +39,11 @@ public class Troops implements Serializable {
 	@ManyToOne
 	private Location location;
 	@OneToMany(mappedBy = "troops")
-	private Collection<Guard> guard;
-	@OneToMany(mappedBy = "troops")
 	private Collection<CrossingPoint> crossingPoint;
 	@OneToMany(mappedBy = "troops")
 	private Collection<ChildTroops> childTroops;
+	@OneToMany(mappedBy = "troops")
+	private Collection<BorderSection> borderSection;
 	public Troops() {
 		super();
 	} 
@@ -105,14 +104,6 @@ public class Troops implements Serializable {
 	    this.location = param;
 	}
 
-	public Collection<Guard> getGuard() {
-	    return guard;
-	}
-
-	public void setGuard(Collection<Guard> param) {
-	    this.guard = param;
-	}
-
 	public Collection<CrossingPoint> getCrossingPoint() {
 	    return crossingPoint;
 	}
@@ -137,6 +128,14 @@ public class Troops implements Serializable {
 					c.setTroops(this);
 			}			
 		}
+	}
+
+	public Collection<BorderSection> getBorderSection() {
+	    return borderSection;
+	}
+
+	public void setBorderSection(Collection<BorderSection> param) {
+	    this.borderSection = param;
 	}
 
 

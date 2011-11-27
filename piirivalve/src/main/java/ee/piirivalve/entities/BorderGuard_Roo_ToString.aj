@@ -5,11 +5,11 @@ package ee.piirivalve.entities;
 
 import java.lang.String;
 
-privileged aspect Manager_Roo_ToString {
+privileged aspect BorderGuard_Roo_ToString {
     
-    public String Manager.toString() {
+    public String BorderGuard.toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("BorderSection: ").append(getBorderSection() == null ? "null" : getBorderSection().size()).append(", ");
+        sb.append("Guard: ").append(getGuard()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Version: ").append(getVersion());

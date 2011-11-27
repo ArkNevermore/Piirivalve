@@ -13,6 +13,7 @@
         <field:select field="fatherTroops" id="c_ee_piirivalve_entities_Troops_fatherTroops" itemValue="id" items="${troopses}" path="/troopses" z="4eZh8OVHqmYHdyt6YJaOuhNjwHs="/>
         <field:simple field="guard" id="c_ee_piirivalve_entities_Troops_guard" messageCode="entity_reference_not_managed" messageCodeAttribute="Guard" z="FXd9zz7teMXn9d4dON29X3IXJic="/>
         <field:simple field="crossingPoint" id="c_ee_piirivalve_entities_Troops_crossingPoint" messageCode="entity_reference_not_managed" messageCodeAttribute="Crossing Point" z="P/t9/lkk2dxPJhiVuW+oZa+zoqs="/>
+        <field:simple field="borderSection" id="c_ee_piirivalve_entities_Troops_borderSection" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Section" z="7UpDRVRtpuVzjSpuV2VDNbYYHkQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_ee_piirivalve_entities_Troops" render="${not empty dependencies}" z="+cZq93Malvt3hmwvnng8Oja2VIM="/>
 </div>

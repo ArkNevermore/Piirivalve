@@ -4,6 +4,5 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_ee_piirivalve_entities_Manager" modelAttribute="manager" path="/managers" versionField="Version" z="vWLGPy9P10hL0MmRFEGQ/FRajSk=">
         <field:input field="name" id="c_ee_piirivalve_entities_Manager_name" z="UVX3Gx3PtYudHu08AyV9IONWO54="/>
-        <field:simple field="borderSection" id="c_ee_piirivalve_entities_Manager_borderSection" messageCode="entity_reference_not_managed" messageCodeAttribute="Border Section" z="kkcDwJM6LPTMC/G3Kp4qYqCEArU="/>
     </form:update>
 </div>

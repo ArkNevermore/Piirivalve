@@ -6,9 +6,9 @@
         <class>ee.piirivalve.entities.CrossingPoint</class>
         <class>ee.piirivalve.entities.Guard</class>
         <class>ee.piirivalve.entities.Troops</class>
-        <class>ee.piirivalve.entities.Manager</class>
         <class>ee.piirivalve.entities.Location</class>
         <class>ee.piirivalve.entities.ChildTroops</class>
+        <class>ee.piirivalve.entities.BorderGuard</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
             <!-- value="create" to build a new database on each run; value="update" to modify an existing database; value="create-drop" means the same as "create" but also drops tables when Hibernate closes; value="validate" makes no changes to the database -->

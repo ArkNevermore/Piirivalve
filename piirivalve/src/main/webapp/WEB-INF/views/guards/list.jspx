@@ -7,7 +7,6 @@
             <table:column id="c_ee_piirivalve_entities_Guard_name" property="name" z="U/qkKfyr/xAZc6M6oha6skJcDLc="/>
             <table:column id="c_ee_piirivalve_entities_Guard_crossingPoint" property="crossingPoint" z="NTxB4IeAp8oiFhC+eIt5bMC3ieM="/>
             <table:column id="c_ee_piirivalve_entities_Guard_borderSection" property="borderSection" z="JbDdXYSURdvFSjPXkwe7dQ9QVyM="/>
-            <table:column id="c_ee_piirivalve_entities_Guard_troops" property="troops" z="+LUA8TlsQxPVwMXFCAOTRihqQc0="/>
         </table:table>
     </page:list>
 </div>

@@ -6,7 +6,7 @@ package ee.itcollege.piirivalve.web;
 import ee.piirivalve.entities.BorderSection;
 import ee.piirivalve.entities.CrossingPoint;
 import ee.piirivalve.entities.Guard;
-import ee.piirivalve.entities.Manager;
+import ee.piirivalve.entities.Troops;
 import java.io.UnsupportedEncodingException;
 import java.lang.Integer;
 import java.lang.Long;
@@ -93,9 +93,9 @@ privileged aspect BorderSectionController_Roo_Controller {
         return Guard.findAllGuards();
     }
     
-    @ModelAttribute("managers")
-    public Collection<Manager> BorderSectionController.populateManagers() {
-        return Manager.findAllManagers();
+    @ModelAttribute("troopses")
+    public Collection<Troops> BorderSectionController.populateTroopses() {
+        return Troops.findAllTroopses();
     }
     
     String BorderSectionController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

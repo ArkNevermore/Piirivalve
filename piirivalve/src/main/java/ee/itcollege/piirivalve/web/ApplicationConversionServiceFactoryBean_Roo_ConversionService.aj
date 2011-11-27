@@ -3,11 +3,11 @@
 
 package ee.itcollege.piirivalve.web;
 
+import ee.piirivalve.entities.BorderGuard;
 import ee.piirivalve.entities.BorderSection;
 import ee.piirivalve.entities.CrossingPoint;
 import ee.piirivalve.entities.Guard;
 import ee.piirivalve.entities.Location;
-import ee.piirivalve.entities.Manager;
 import ee.piirivalve.entities.Troops;
 import java.lang.String;
 import org.springframework.core.convert.converter.Converter;
@@ -16,17 +16,24 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(new BorderGuardConverter());
         registry.addConverter(new BorderSectionConverter());
         registry.addConverter(new CrossingPointConverter());
         registry.addConverter(new GuardConverter());
         registry.addConverter(new LocationConverter());
-        registry.addConverter(new ManagerConverter());
         registry.addConverter(new TroopsConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {
         super.afterPropertiesSet();
         installLabelConverters(getObject());
+    }
+    
+    static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.BorderGuardConverter implements Converter<BorderGuard, String> {
+        public String convert(BorderGuard borderGuard) {
+            return new StringBuilder().append(borderGuard.getName()).toString();
+        }
+        
     }
     
     static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.BorderSectionConverter implements Converter<BorderSection, String> {
@@ -53,13 +60,6 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.LocationConverter implements Converter<Location, String> {
         public String convert(Location location) {
             return new StringBuilder().append(location.getName()).toString();
-        }
-        
-    }
-    
-    static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.ManagerConverter implements Converter<Manager, String> {
-        public String convert(Manager manager) {
-            return new StringBuilder().append(manager.getName()).toString();
         }
         
     }

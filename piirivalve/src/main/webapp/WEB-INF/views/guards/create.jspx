@@ -6,7 +6,5 @@
         <field:input field="name" id="c_ee_piirivalve_entities_Guard_name" z="AadqXuganUBylde311fJrkngpu8="/>
         <field:select field="crossingPoint" id="c_ee_piirivalve_entities_Guard_crossingPoint" itemValue="id" items="${crossingpoints}" path="/crossingpoints" z="9pQYtuYfnVF6B1UbnEDn33tXJ10="/>
         <field:select field="borderSection" id="c_ee_piirivalve_entities_Guard_borderSection" itemValue="id" items="${bordersections}" path="/bordersections" z="uxT7X1UZf7J1s/g9IW2+GqVsTe0="/>
-        <field:select field="troops" id="c_ee_piirivalve_entities_Guard_troops" itemValue="id" items="${troopses}" path="/troopses" z="IZ1R9Z7E2HD9frtxcB9aEYrsn4w="/>
     </form:create>
-    <form:dependency dependencies="${dependencies}" id="d_ee_piirivalve_entities_Guard" render="${not empty dependencies}" z="5v0SlkqxKFwHke84Ehwy8kqn8Jo="/>
 </div>

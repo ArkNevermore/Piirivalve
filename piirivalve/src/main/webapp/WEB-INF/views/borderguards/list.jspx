@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_ee_piirivalve_entities_BorderGuard" items="${borderguards}" z="6C5fdZNCdBpgtaCfSEGh0vvtDWQ=">
+        <table:table data="${borderguards}" id="l_ee_piirivalve_entities_BorderGuard" path="/borderguards" z="E6vd2F48/gvm8r2psVFzVaDgiXI=">
+            <table:column id="c_ee_piirivalve_entities_BorderGuard_name" property="name" z="PVNlSZg+2DDQLwUO3n85/paLhaQ="/>
+            <table:column id="c_ee_piirivalve_entities_BorderGuard_guard" property="guard" z="CY5rZdG0FoY6R1rGObPg7lMDkC8="/>
+        </table:table>
+    </page:list>
+</div>

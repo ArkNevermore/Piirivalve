@@ -10,7 +10,9 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Troops;
+import ee.piirivalve.entities.BorderGuard;
+import java.util.Collection;
+import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Guard
@@ -36,9 +38,11 @@ public class Guard implements Serializable {
 	@ManyToOne
 	private BorderSection borderSection;
 	@ManyToOne
+	
 	private CrossingPoint crossingPoint;
-	@ManyToOne
-	private Troops troops;
+	@OneToMany(mappedBy = "guard")
+	private Collection<BorderGuard> borderGuards;
+	
 	public Guard() {
 		super();
 	}   
@@ -61,11 +65,11 @@ public class Guard implements Serializable {
 	public void setCrossingPoint(CrossingPoint param) {
 	    this.crossingPoint = param;
 	}
-	public Troops getTroops() {
-	    return troops;
+	public Collection<BorderGuard> getBorderGuards() {
+	    return borderGuards;
 	}
-	public void setTroops(Troops param) {
-	    this.troops = param;
+	public void setBorderGuards(Collection<BorderGuard> param) {
+	    this.borderGuards = param;
 	}
    
 }

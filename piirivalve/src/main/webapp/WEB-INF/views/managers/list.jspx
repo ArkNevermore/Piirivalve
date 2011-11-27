@@ -5,7 +5,6 @@
     <page:list id="pl_ee_piirivalve_entities_Manager" items="${managers}" z="ggU/1C1l6N6fV5wPU+3vMnBAhQE=">
         <table:table data="${managers}" id="l_ee_piirivalve_entities_Manager" path="/managers" z="XWWaBscHDkG8wqrhAqFUIpDG0AI=">
             <table:column id="c_ee_piirivalve_entities_Manager_name" property="name" z="do0nFTuzGDPg0cQDt3ZlMLa9vJA="/>
-            <table:column id="c_ee_piirivalve_entities_Manager_borderSection" property="borderSection" z="9oFHEGlB9bL2kDSVGWNKkYkZhkk="/>
         </table:table>
     </page:list>
 </div>

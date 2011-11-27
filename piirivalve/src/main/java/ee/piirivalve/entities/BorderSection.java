@@ -8,12 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Guard;
+import ee.piirivalve.entities.Troops;
+import javax.persistence.ManyToOne;
 
 /**
  * Entity implementation class for Entity: BorderSection
@@ -36,12 +36,12 @@ public class BorderSection implements Serializable {
 	private String latitude;
 	private String height;
 	
-	@ManyToOne
-	private Manager manager;
 	@OneToMany(mappedBy = "borderSection")
 	private Collection<CrossingPoint> crossingPoint;
 	@OneToMany(mappedBy = "borderSection")
 	private Collection<Guard> guard;
+	@ManyToOne
+	private Troops troops;
 	public String getCode() {
 		return code;
 	}
@@ -88,12 +88,6 @@ public class BorderSection implements Serializable {
 	public void setHeight(String height) {
 		this.height = height;
 	}
-	public Manager getManager() {
-	    return manager;
-	}
-	public void setManager(Manager param) {
-	    this.manager = param;
-	}
 	public Collection<CrossingPoint> getCrossingPoint() {
 	    return crossingPoint;
 	}
@@ -114,6 +108,12 @@ public class BorderSection implements Serializable {
 					g.setBorderSection(this);
 			}			
 		}
+	}
+	public Troops getTroops() {
+	    return troops;
+	}
+	public void setTroops(Troops param) {
+	    this.troops = param;
 	}
 	
 }

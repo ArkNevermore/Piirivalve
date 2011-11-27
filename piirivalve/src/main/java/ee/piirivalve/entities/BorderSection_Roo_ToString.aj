@@ -17,8 +17,8 @@ privileged aspect BorderSection_Roo_ToString {
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Latitude: ").append(getLatitude()).append(", ");
         sb.append("Longitude: ").append(getLongitude()).append(", ");
-        sb.append("Manager: ").append(getManager()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
+        sb.append("Troops: ").append(getTroops()).append(", ");
         sb.append("Version: ").append(getVersion());
         return sb.toString();
     }
