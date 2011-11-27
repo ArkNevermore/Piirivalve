@@ -11,18 +11,17 @@
     <h3>
       <spring:message arguments="${app_name}" code="welcome_titlepane"/>
     </h3>
-      <c:forEach items="${data}" var="d">
+     <c:forEach items="${data}" var="d">
       	<h3>${d.troops.name}</h3>
       	<table>
-      		<c:forEach items="${d.items}" var="i">
-      		<tr>
-      			<c:forEach items="${i}" var="s">
-      				<td>${s}</td>
-      		 	</c:forEach>
-        	</tr>
+      	<tr>
+      	<c:forEach items="${d.items}" var="i">
+      		<c:forEach items="${i}" var="s">
+      		<td>${s}</td>
        	    </c:forEach>
-        </table>
+       	</c:forEach>
+       	    </tr>
+       	 </table>
       </c:forEach>
-
   </util:panel>
 </div>

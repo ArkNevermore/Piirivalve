@@ -30,7 +30,8 @@ public class Report {
 
     @SuppressWarnings("unchecked")
 	public static Report findAllEntries(Troops c) {
-    	Query q = entityManager().createQuery("Select t.name, COUNT(c.name), b.name FROM CrossingPoint AS t JOIN t.borderSection AS b JOIN b.guard as c WHERE t.troops = :troops GROUP BY c.name");
+    	Query q = entityManager().createQuery("Select Count(c.name), t.name FROM BorderSection AS t JOIN t.guard as c WHERE t.troops = :troops GROUP BY c.name");
+    		//	"Select t.name, COUNT(c.name), b.name FROM CrossingPoint AS t JOIN t.borderSection AS b JOIN b.guard as c WHERE t.troops = :troops GROUP BY c.name");
     	q.setParameter("troops", c);
     	
     	return new Report(c, q.getResultList());
