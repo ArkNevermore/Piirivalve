@@ -63,6 +63,17 @@ privileged aspect BorderSectionController_Roo_Controller {
         return "bordersections/list";
     }
     
+    @RequestMapping(method = RequestMethod.PUT)
+    public String BorderSectionController.update(@Valid BorderSection borderSection, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
+        if (bindingResult.hasErrors()) {
+            uiModel.addAttribute("borderSection", borderSection);
+            return "bordersections/update";
+        }
+        uiModel.asMap().clear();
+        borderSection.merge();
+        return "redirect:/bordersections/" + encodeUrlPathSegment(borderSection.getId().toString(), httpServletRequest);
+    }
+    
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String BorderSectionController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("borderSection", BorderSection.findBorderSection(id));

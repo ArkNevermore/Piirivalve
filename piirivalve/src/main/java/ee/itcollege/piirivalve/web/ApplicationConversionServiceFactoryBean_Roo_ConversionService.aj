@@ -38,7 +38,8 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.BorderSectionConverter implements Converter<BorderSection, String> {
         public String convert(BorderSection borderSection) {
-            return new StringBuilder().append(borderSection.getCode()).append(" ").append(borderSection.getName()).append(" ").append(borderSection.getComment()).append(" ").append(borderSection.getLongitude()).toString();
+        	return borderSection.getName();
+            //return new StringBuilder().append(borderSection.getCode()).append(" ").append(borderSection.getName()).append(" ").append(borderSection.getComment()).append(" ").append(borderSection.getLongitude()).toString();
         }
         
     }
@@ -66,7 +67,8 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     
     static class ee.itcollege.piirivalve.web.ApplicationConversionServiceFactoryBean.TroopsConverter implements Converter<Troops, String> {
         public String convert(Troops troops) {
-            return new StringBuilder().append(troops.getCode()).append(" ").append(troops.getName()).append(" ").append(troops.getComment()).append(" ").append(troops.getStartdate()).toString();
+            //return new StringBuilder().append(troops.getCode()).append(" ").append(troops.getName()).append(" ").append(troops.getComment()).append(" ").append(troops.getStartdate()).toString();
+        	return troops.getCode();
         }
         
     }
