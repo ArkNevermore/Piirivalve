@@ -1,19 +1,29 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreRemove;
+import javax.persistence.PreUpdate;
+import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.tostring.RooToString;
-import ee.piirivalve.entities.Guard;
-import java.util.Collection;
-import javax.persistence.ManyToMany;
-import ee.piirivalve.entities.Troops;
+import org.springframework.transaction.annotation.Transactional;
+
+import ee.itcollege.piirivalve.web.AuthController;
 /**
  * Entity implementation class for Entity: CrossingPoint
  *
@@ -27,16 +37,37 @@ public class CrossingPoint implements Serializable {
 	@Id
 	private Long id;
 	
+    @NotNull
 	private String code;
+    @NotNull
 	private String name;
+    @NotNull
 	private String comment;
+    @NotNull
 	private String longitude;
+    @NotNull
 	private String latitude;
-	private String height;
+    @NotNull
+    private String height;
 	
-	private String startdate;
-	private String enddate;
+	@DateTimeFormat(style="M-")
+	@NotNull
+	private Date startdate;
+	@DateTimeFormat(style="M-")
+	private Date enddate;
 
+	private String creator;
+	private String modifier;
+	private String deleter;
+	
+	@DateTimeFormat(style="M-")
+	private Date modified;
+	
+	@DateTimeFormat(style="M-")
+	private Date created;
+	
+	@DateTimeFormat(style="M-")
+	private Date deleted;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -95,17 +126,25 @@ public class CrossingPoint implements Serializable {
 	public void setHeight(String height) {
 		this.height = height;
 	}
-	public String getStartdate() {
+	public Date getStartdate() {
 		return startdate;
 	}
-	public void setStartdate(String startdate) {
+	public void setStartdate(Date startdate) {
 		this.startdate = startdate;
 	}
-	public String getEnddate() {
+	public Date getEnddate() {
 		return enddate;
 	}
-	public void setEnddate(String enddate) {
-		this.enddate = enddate;
+	public void setEnddate(Date enddate) {
+		if (enddate == null) 
+		{
+			Calendar cal = new GregorianCalendar();
+			cal.set(9999, Calendar.DECEMBER, 31);
+			this.enddate = cal.getTime();
+		}else{
+			this.enddate = enddate;
+			setTroops(null);
+		}
 	}
 	public BorderSection getBorderSection() {
 	    return borderSection;
@@ -125,4 +164,109 @@ public class CrossingPoint implements Serializable {
 	public void setTroops(Troops param) {
 	    this.troops = param;
 	}
+	
+    @PrePersist
+    public void recordCreated() {
+        setCreated(new Date());
+        setCreator(AuthController.user());
+    }
+
+    public Date getModified() {
+		return modified;
+	}
+
+	public Date getCreated() {
+		return this.created;
+	}
+
+	private void setCreated(Date date) {
+		this.created = date;	
+	}
+	
+	@PreUpdate
+    public void recordModified() {
+        setModified( new Date() );
+        setModifier(AuthController.user());
+    }
+	
+    private void setModified(Date date) {
+		this.modified = date;		
+	}
+    
+	public Date getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Date deleted) {
+		this.deleted = deleted;
+	}
+    
+	@PreRemove
+    public void preventRemove() {
+		setDeleted(new Date());
+		setDeleter(AuthController.user());
+    }
+	
+	public String getCreator() {
+		return creator;
+	}
+
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
+
+	public String getModifier() {
+		return modifier;
+	}
+
+	public void setModifier(String modifier) {
+		this.modifier = modifier;
+	}
+
+	public String getDeleter() {
+		return deleter;
+	}
+
+	public void setDeleter(String deleter) {
+		this.deleter = deleter;
+	}
+	
+    @Transactional
+    public CrossingPoint merge() {
+        if(id != null && !entityManager.contains(this)) {
+        	CrossingPoint oldEntity = entityManager.find(getClass(), id);
+            if(getCreated() == null)
+                setCreated(oldEntity.getCreated());
+            if (getModified() == null)
+            	setModified(oldEntity.getModified()); 
+            if (getCreator() == null)
+            	setCreator(oldEntity.getCreator());
+            if (getModifier() == null)
+            	setModifier(oldEntity.getModifier()); 
+        }
+        CrossingPoint merged = this.entityManager.merge(this);
+        this.entityManager.flush();
+        return merged;
+    }
+    
+    @Transactional
+    public void remove() {
+        if (this.entityManager == null) this.entityManager = entityManager();
+        if (this.entityManager.contains(this)) {
+        	preventRemove();
+        	setTroops(null);
+            //this.entityManager.remove(this);
+        } else {
+        	CrossingPoint attached = CrossingPoint.findCrossingPoint(this.id);
+            this.entityManager.remove(attached);
+        }
+    }
+	
+    public static List<CrossingPoint> findAllBorderSections() {
+        return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleted is null", CrossingPoint.class).getResultList();
+    }
+    
+    public static List<CrossingPoint> findBorderSectionEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleted is null", CrossingPoint.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    }	
 }

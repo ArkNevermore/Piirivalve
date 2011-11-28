@@ -37,17 +37,6 @@ privileged aspect CrossingPoint_Roo_Entity {
     }
     
     @Transactional
-    public void CrossingPoint.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            CrossingPoint attached = CrossingPoint.findCrossingPoint(this.id);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void CrossingPoint.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -57,14 +46,6 @@ privileged aspect CrossingPoint_Roo_Entity {
     public void CrossingPoint.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
-    }
-    
-    @Transactional
-    public CrossingPoint CrossingPoint.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        CrossingPoint merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
     }
     
     public static final EntityManager CrossingPoint.entityManager() {

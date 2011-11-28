@@ -13,6 +13,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +31,7 @@ privileged aspect GuardController_Roo_Controller {
     public String GuardController.create(@Valid Guard guard, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("guard", guard);
+            addDateTimeFormatPatterns(uiModel);
             return "guards/create";
         }
         uiModel.asMap().clear();
@@ -39,11 +42,13 @@ privileged aspect GuardController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String GuardController.createForm(Model uiModel) {
         uiModel.addAttribute("guard", new Guard());
+        addDateTimeFormatPatterns(uiModel);
         return "guards/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String GuardController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("guard", Guard.findGuard(id));
         uiModel.addAttribute("itemId", id);
         return "guards/show";
@@ -59,6 +64,7 @@ privileged aspect GuardController_Roo_Controller {
         } else {
             uiModel.addAttribute("guards", Guard.findAllGuards());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "guards/list";
     }
     
@@ -66,6 +72,7 @@ privileged aspect GuardController_Roo_Controller {
     public String GuardController.update(@Valid Guard guard, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("guard", guard);
+            addDateTimeFormatPatterns(uiModel);
             return "guards/update";
         }
         uiModel.asMap().clear();
@@ -76,6 +83,7 @@ privileged aspect GuardController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String GuardController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("guard", Guard.findGuard(id));
+        addDateTimeFormatPatterns(uiModel);
         return "guards/update";
     }
     
@@ -101,6 +109,12 @@ privileged aspect GuardController_Roo_Controller {
     @ModelAttribute("troopses")
     public Collection<Troops> GuardController.populateTroopses() {
         return Troops.findAllTroopses();
+    }
+    
+    void GuardController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("guard_modified_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("guard_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("guard_deleted_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String GuardController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

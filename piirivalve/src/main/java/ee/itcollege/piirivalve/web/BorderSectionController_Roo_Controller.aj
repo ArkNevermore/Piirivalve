@@ -14,6 +14,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,6 +32,7 @@ privileged aspect BorderSectionController_Roo_Controller {
     public String BorderSectionController.create(@Valid BorderSection borderSection, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("borderSection", borderSection);
+            addDateTimeFormatPatterns(uiModel);
             return "bordersections/create";
         }
         uiModel.asMap().clear();
@@ -40,11 +43,13 @@ privileged aspect BorderSectionController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String BorderSectionController.createForm(Model uiModel) {
         uiModel.addAttribute("borderSection", new BorderSection());
+        addDateTimeFormatPatterns(uiModel);
         return "bordersections/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String BorderSectionController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("bordersection", BorderSection.findBorderSection(id));
         uiModel.addAttribute("itemId", id);
         return "bordersections/show";
@@ -60,6 +65,7 @@ privileged aspect BorderSectionController_Roo_Controller {
         } else {
             uiModel.addAttribute("bordersections", BorderSection.findAllBorderSections());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "bordersections/list";
     }
     
@@ -67,6 +73,7 @@ privileged aspect BorderSectionController_Roo_Controller {
     public String BorderSectionController.update(@Valid BorderSection borderSection, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("borderSection", borderSection);
+            addDateTimeFormatPatterns(uiModel);
             return "bordersections/update";
         }
         uiModel.asMap().clear();
@@ -101,6 +108,12 @@ privileged aspect BorderSectionController_Roo_Controller {
     @ModelAttribute("troopses")
     public Collection<Troops> BorderSectionController.populateTroopses() {
         return Troops.findAllTroopses();
+    }
+    
+    void BorderSectionController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("borderSection_modified_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("borderSection_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("borderSection_deleted_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String BorderSectionController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

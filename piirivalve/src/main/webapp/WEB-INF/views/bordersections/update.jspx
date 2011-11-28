@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:springform="http://www.springframework.org/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:util="http://www.springframework.org/schema/util" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_ee_piirivalve_entities_BorderSection" modelAttribute="borderSection" path="/bordersections" versionField="Version" z="tkFFZxSkAme/Fc4UAGOlRXDZ6Y0=">
-        <field:input field="code" id="c_ee_piirivalve_entities_BorderSection_code" z="NNa8BB1ZluUMCeXeUnuSqPDqxpM="/>
-        <field:input field="name" id="c_ee_piirivalve_entities_BorderSection_name" z="C73nxRP7TQTX+qWYmH4FCKy9Adc="/>
+        <field:input field="code" id="c_ee_piirivalve_entities_BorderSection_code" required="true" z="uIhpzNlBVhqugIZGq7L0oTUlkOs="/>
+        <field:input field="name" id="c_ee_piirivalve_entities_BorderSection_name" required="true" z="4MNjb7rfYNlSZsIcJkiBR/XF52U="/>
         <field:input field="comment" id="c_ee_piirivalve_entities_BorderSection_comment" z="opW4SmQHMGB67UwNmYgkA2MjWxo="/>
-        <field:input field="coordinates" id="c_ee_piirivalve_entities_BorderSection_coordinates" z="Tvxr3FUy/VD7vN7zvmyP9UbSMrg="/>
+        <field:input field="coordinates" id="c_ee_piirivalve_entities_BorderSection_coordinates" required="true" z="2MNC61nN/j2dU59GQbmx3EcUntw="/>
         <field:select field="troops" id="c_ee_piirivalve_entities_BorderSection_troops" itemValue="id" items="${troopses}" path="/troopses" z="EZvGDpOrscI6OY80W+xwgtGdQNc="/>
-        <!--<field:simple field="crossingPoint" id="c_ee_piirivalve_entities_BorderSection_crossingPoint" messageCode="entity_reference_not_managed" messageCodeAttribute="Crossing Point" z="TjpXNvIndyMJsh1td9o71/JPfXA="/>-->
         <field:select field="guard" id="c_ee_piirivalve_entities_BorderSection_guard" itemValue="id" items="${troop_guards}" multiple="true" path="/guards" z="user-managed"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_crossingPoint"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_modified"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_created"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_deleted"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_creator"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_modifier"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_deleter"/>
     </form:update>
 </div>

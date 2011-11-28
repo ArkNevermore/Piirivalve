@@ -6,6 +6,10 @@
         <table:table data="${locations}" id="l_ee_piirivalve_entities_Location" path="/locations" z="EXHbUm0wCa1vW/DkzRCEUKgdZYQ=">
             <table:column id="c_ee_piirivalve_entities_Location_name" property="name" z="PLLxikYq/pi3Giv8YfnRLToBYHk="/>
             <table:column id="c_ee_piirivalve_entities_Location_troops" property="troops" z="4M9Gv/MFw5xnEy1jaWUkxjjQ3I8="/>
+            <table:column id="c_ee_piirivalve_entities_Location_creator" property="creator" z="53UVQcKDLBeqW2GTFboJ56VFQGw="/>
+            <table:column date="true" dateTimePattern="${location_modified_date_format}" id="c_ee_piirivalve_entities_Location_modified" property="modified" z="Xi8sED5h8286jPSa1cuiBXFCPYI="/>
+            <table:column date="true" dateTimePattern="${location_created_date_format}" id="c_ee_piirivalve_entities_Location_created" property="created" z="ZME9Kj4LBYXuE0MrqHkm2z5/9rk="/>
+            <table:column date="true" dateTimePattern="${location_deleted_date_format}" id="c_ee_piirivalve_entities_Location_deleted" property="deleted" z="BuMto62ShgYzfVJbRysPyr5CAyA="/>
         </table:table>
     </page:list>
 </div>

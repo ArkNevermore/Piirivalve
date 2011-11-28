@@ -29,14 +29,20 @@ public class Report {
 	}
 
     @SuppressWarnings("unchecked")
-	public static Report findAllEntries(Troops c) {
-    	Query q = entityManager().createQuery("Select Count(c.name), t.name FROM BorderSection AS t JOIN t.guard as c WHERE t.troops = :troops GROUP BY c.name");
-    		//	"Select t.name, COUNT(c.name), b.name FROM CrossingPoint AS t JOIN t.borderSection AS b JOIN b.guard as c WHERE t.troops = :troops GROUP BY c.name");
+	public static Report findAllSections(Troops c) {
+    	Query q = entityManager().createQuery("Select q.name, COUNT(g.name) FROM BorderSection AS q JOIN q.guard AS g WHERE q.troops = :troops GROUP BY q.name");
     	q.setParameter("troops", c);
     	
     	return new Report(c, q.getResultList());
     }
     
+    @SuppressWarnings("unchecked")
+	public static Report findAllPoints(Troops c) {
+    	Query q = entityManager().createQuery("Select q.name, COUNT(g.name) FROM CrossingPoint AS q JOIN q.guard AS g WHERE q.troops = :troops GROUP BY q.name");
+    	q.setParameter("troops", c);
+    	
+    	return new Report(c, q.getResultList());
+    }
     public static final EntityManager entityManager() {
         EntityManager em = new Report().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");

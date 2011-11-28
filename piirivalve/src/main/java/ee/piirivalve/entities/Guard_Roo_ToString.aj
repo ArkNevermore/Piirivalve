@@ -10,7 +10,13 @@ privileged aspect Guard_Roo_ToString {
     public String Guard.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("BorderGuards: ").append(getBorderGuards() == null ? "null" : getBorderGuards().size()).append(", ");
+        sb.append("Created: ").append(getCreated()).append(", ");
+        sb.append("Creator: ").append(getCreator()).append(", ");
+        sb.append("Deleted: ").append(getDeleted()).append(", ");
+        sb.append("Deleter: ").append(getDeleter()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
+        sb.append("Modified: ").append(getModified()).append(", ");
+        sb.append("Modifier: ").append(getModifier()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Troops: ").append(getTroops()).append(", ");
         sb.append("Version: ").append(getVersion());

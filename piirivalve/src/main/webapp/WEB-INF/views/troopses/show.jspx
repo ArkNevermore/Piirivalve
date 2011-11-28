@@ -7,8 +7,14 @@
         <field:display field="name" id="s_ee_piirivalve_entities_Troops_name" object="${troops}" z="XDkGmfxpVwTVT+qJfky25+5ZdBs="/>
         <field:display field="comment" id="s_ee_piirivalve_entities_Troops_comment" object="${troops}" z="203u7h5YwxmgwqG/M2c7PX1bNzw="/>
         <field:display field="location" id="s_ee_piirivalve_entities_Troops_location" object="${troops}" z="QG2FXqW76xl9dnf96WPBLqHVBHM="/>
-        <field:display field="startdate" id="s_ee_piirivalve_entities_Troops_startdate" object="${troops}" z="qnCTYvCFydpWNrVqiQCSiK/k5t8="/>
-        <field:display field="enddate" id="s_ee_piirivalve_entities_Troops_enddate" object="${troops}" z="xUkRWKOMmWERvTZcatrj1s2RL0I="/>
         <field:display field="fatherTroops" id="s_ee_piirivalve_entities_Troops_fatherTroops" object="${troops}" z="rKcDXMF2jua778Kft/j1X4Qekuc="/>
+        <field:display date="true" dateTimePattern="${troops_startdate_date_format}" field="startdate" id="s_ee_piirivalve_entities_Troops_startdate" object="${troops}" z="iK4jzxuZwfDfGSV9yxEbrzB205s="/>
+        <field:display date="true" dateTimePattern="${troops_enddate_date_format}" field="enddate" id="s_ee_piirivalve_entities_Troops_enddate" object="${troops}" z="AqWQ2kO2aT1gG1lFKWj6NuJmWkU="/>
+        <field:display date="true" dateTimePattern="${troops_created_date_format}" field="created" id="s_ee_piirivalve_entities_Troops_created" object="${troops}" z="lb8VsNwthxAfUOTtc0mNf3c+WJc="/>
+        <field:display field="creator" id="s_ee_piirivalve_entities_Troops_creator" object="${troops}" z="gGtmdndG7jR7sfhZxi8L1EIisSg="/>
+        <field:display date="true" dateTimePattern="${troops_modified_date_format}" field="modified" id="s_ee_piirivalve_entities_Troops_modified" object="${troops}" z="v0oZQ++w0xMYICcpFE/cTEgdUsk="/>
+        <field:display field="modifier" id="s_ee_piirivalve_entities_Troops_modifier" object="${troops}" z="aqxcWWsdc95uw/u68i7kfQZRfdw="/>
+        <field:display date="true" dateTimePattern="${troops_deleted_date_format}" field="deleted" id="s_ee_piirivalve_entities_Troops_deleted" object="${troops}" z="1xjJjRHmN3M6eYEFE+gcPw/oQoU="/>
+        <field:display field="deleter" id="s_ee_piirivalve_entities_Troops_deleter" object="${troops}" z="qiIW2vsQNXhLZ6NImzxgOoLv7YY="/>
     </page:show>
 </div>

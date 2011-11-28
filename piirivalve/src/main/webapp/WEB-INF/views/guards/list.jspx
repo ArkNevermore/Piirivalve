@@ -5,8 +5,11 @@
     <page:list id="pl_ee_piirivalve_entities_Guard" items="${guards}" z="uAX6ut0+GTJrY/qmlVeIe6A2qps=">
         <table:table data="${guards}" id="l_ee_piirivalve_entities_Guard" path="/guards" z="jv4fi6aoTDHFZD02G3ANt4ncG9M=">
             <table:column id="c_ee_piirivalve_entities_Guard_name" property="name" z="U/qkKfyr/xAZc6M6oha6skJcDLc="/>
-            <table:column id="c_ee_piirivalve_entities_Guard_borderGuards" property="borderGuards" z="X4FuA17t49OVgAcPWOyZsIiVNvc="/>
-            <table:column id="c_ee_piirivalve_entities_Guard_troops" property="troops" z="+LUA8TlsQxPVwMXFCAOTRihqQc0="/>
+            <table:column date="true" dateTimePattern="${guard_modified_date_format}" id="c_ee_piirivalve_entities_Guard_modified" property="modified" z="IWtPDljkokc74YYu8d3SLfLdQ3E="/>
+            <table:column date="true" dateTimePattern="${guard_created_date_format}" id="c_ee_piirivalve_entities_Guard_created" property="created" z="2AL9+TXm7r4Y1eWxDHdu77qWoG8="/>
+            <table:column date="true" dateTimePattern="${guard_deleted_date_format}" id="c_ee_piirivalve_entities_Guard_deleted" property="deleted" z="EZDx23v/bltLCZcwc6iuUifLa8Y="/>
+            <table:column id="c_ee_piirivalve_entities_Guard_creator" property="creator" z="8s9uGO5xdT52lN7Q3WNBa8nYvAQ="/>
+            <table:column id="c_ee_piirivalve_entities_Guard_modifier" property="modifier" z="r5MJbM98r/YJfd81Iho6GsJgA2A="/>
         </table:table>
     </page:list>
 </div>

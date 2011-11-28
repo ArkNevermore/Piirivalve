@@ -6,7 +6,6 @@ package ee.piirivalve.entities;
 import ee.piirivalve.entities.Guard;
 import java.lang.Integer;
 import java.lang.Long;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -37,17 +36,6 @@ privileged aspect Guard_Roo_Entity {
     }
     
     @Transactional
-    public void Guard.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            Guard attached = Guard.findGuard(this.id);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void Guard.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -57,14 +45,6 @@ privileged aspect Guard_Roo_Entity {
     public void Guard.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
-    }
-    
-    @Transactional
-    public Guard Guard.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        Guard merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
     }
     
     public static final EntityManager Guard.entityManager() {
@@ -77,17 +57,9 @@ privileged aspect Guard_Roo_Entity {
         return entityManager().createQuery("SELECT COUNT(o) FROM Guard o", Long.class).getSingleResult();
     }
     
-    public static List<Guard> Guard.findAllGuards() {
-        return entityManager().createQuery("SELECT o FROM Guard o", Guard.class).getResultList();
-    }
-    
     public static Guard Guard.findGuard(Long id) {
         if (id == null) return null;
         return entityManager().find(Guard.class, id);
-    }
-    
-    public static List<Guard> Guard.findGuardEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Guard o", Guard.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

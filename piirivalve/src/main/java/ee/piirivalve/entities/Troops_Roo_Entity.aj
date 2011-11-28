@@ -6,7 +6,6 @@ package ee.piirivalve.entities;
 import ee.piirivalve.entities.Troops;
 import java.lang.Integer;
 import java.lang.Long;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -37,17 +36,6 @@ privileged aspect Troops_Roo_Entity {
     }
     
     @Transactional
-    public void Troops.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            Troops attached = Troops.findTroops(this.id);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void Troops.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -57,14 +45,6 @@ privileged aspect Troops_Roo_Entity {
     public void Troops.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
-    }
-    
-    @Transactional
-    public Troops Troops.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        Troops merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
     }
     
     public static final EntityManager Troops.entityManager() {
@@ -77,17 +57,9 @@ privileged aspect Troops_Roo_Entity {
         return entityManager().createQuery("SELECT COUNT(o) FROM Troops o", Long.class).getSingleResult();
     }
     
-    public static List<Troops> Troops.findAllTroopses() {
-        return entityManager().createQuery("SELECT o FROM Troops o", Troops.class).getResultList();
-    }
-    
     public static Troops Troops.findTroops(Long id) {
         if (id == null) return null;
         return entityManager().find(Troops.class, id);
-    }
-    
-    public static List<Troops> Troops.findTroopsEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Troops o", Troops.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

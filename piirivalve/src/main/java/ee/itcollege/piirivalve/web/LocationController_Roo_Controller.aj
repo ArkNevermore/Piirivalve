@@ -12,6 +12,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,7 @@ privileged aspect LocationController_Roo_Controller {
     public String LocationController.create(@Valid Location location, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("location", location);
+            addDateTimeFormatPatterns(uiModel);
             return "locations/create";
         }
         uiModel.asMap().clear();
@@ -38,11 +41,13 @@ privileged aspect LocationController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String LocationController.createForm(Model uiModel) {
         uiModel.addAttribute("location", new Location());
+        addDateTimeFormatPatterns(uiModel);
         return "locations/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String LocationController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("location", Location.findLocation(id));
         uiModel.addAttribute("itemId", id);
         return "locations/show";
@@ -58,6 +63,7 @@ privileged aspect LocationController_Roo_Controller {
         } else {
             uiModel.addAttribute("locations", Location.findAllLocations());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "locations/list";
     }
     
@@ -65,6 +71,7 @@ privileged aspect LocationController_Roo_Controller {
     public String LocationController.update(@Valid Location location, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("location", location);
+            addDateTimeFormatPatterns(uiModel);
             return "locations/update";
         }
         uiModel.asMap().clear();
@@ -75,6 +82,7 @@ privileged aspect LocationController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String LocationController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("location", Location.findLocation(id));
+        addDateTimeFormatPatterns(uiModel);
         return "locations/update";
     }
     
@@ -95,6 +103,12 @@ privileged aspect LocationController_Roo_Controller {
     @ModelAttribute("troopses")
     public Collection<Troops> LocationController.populateTroopses() {
         return Troops.findAllTroopses();
+    }
+    
+    void LocationController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("location_modified_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("location_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("location_deleted_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String LocationController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

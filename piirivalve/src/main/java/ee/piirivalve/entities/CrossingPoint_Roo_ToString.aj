@@ -12,12 +12,18 @@ privileged aspect CrossingPoint_Roo_ToString {
         sb.append("BorderSection: ").append(getBorderSection()).append(", ");
         sb.append("Code: ").append(getCode()).append(", ");
         sb.append("Comment: ").append(getComment()).append(", ");
+        sb.append("Created: ").append(getCreated()).append(", ");
+        sb.append("Creator: ").append(getCreator()).append(", ");
+        sb.append("Deleted: ").append(getDeleted()).append(", ");
+        sb.append("Deleter: ").append(getDeleter()).append(", ");
         sb.append("Enddate: ").append(getEnddate()).append(", ");
         sb.append("Guard: ").append(getGuard() == null ? "null" : getGuard().size()).append(", ");
         sb.append("Height: ").append(getHeight()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Latitude: ").append(getLatitude()).append(", ");
         sb.append("Longitude: ").append(getLongitude()).append(", ");
+        sb.append("Modified: ").append(getModified()).append(", ");
+        sb.append("Modifier: ").append(getModifier()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Startdate: ").append(getStartdate()).append(", ");
         sb.append("Troops: ").append(getTroops()).append(", ");

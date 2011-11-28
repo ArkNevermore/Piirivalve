@@ -6,7 +6,6 @@ package ee.piirivalve.entities;
 import ee.piirivalve.entities.Location;
 import java.lang.Integer;
 import java.lang.Long;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -37,17 +36,6 @@ privileged aspect Location_Roo_Entity {
     }
     
     @Transactional
-    public void Location.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            Location attached = Location.findLocation(this.id);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void Location.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -57,14 +45,6 @@ privileged aspect Location_Roo_Entity {
     public void Location.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
-    }
-    
-    @Transactional
-    public Location Location.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        Location merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
     }
     
     public static final EntityManager Location.entityManager() {
@@ -77,17 +57,9 @@ privileged aspect Location_Roo_Entity {
         return entityManager().createQuery("SELECT COUNT(o) FROM Location o", Long.class).getSingleResult();
     }
     
-    public static List<Location> Location.findAllLocations() {
-        return entityManager().createQuery("SELECT o FROM Location o", Location.class).getResultList();
-    }
-    
     public static Location Location.findLocation(Long id) {
         if (id == null) return null;
         return entityManager().find(Location.class, id);
-    }
-    
-    public static List<Location> Location.findLocationEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Location o", Location.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

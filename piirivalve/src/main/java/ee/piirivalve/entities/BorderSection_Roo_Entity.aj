@@ -6,7 +6,6 @@ package ee.piirivalve.entities;
 import ee.piirivalve.entities.BorderSection;
 import java.lang.Integer;
 import java.lang.Long;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -37,17 +36,6 @@ privileged aspect BorderSection_Roo_Entity {
     }
     
     @Transactional
-    public void BorderSection.remove() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        if (this.entityManager.contains(this)) {
-            this.entityManager.remove(this);
-        } else {
-            BorderSection attached = BorderSection.findBorderSection(this.id);
-            this.entityManager.remove(attached);
-        }
-    }
-    
-    @Transactional
     public void BorderSection.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
@@ -57,14 +45,6 @@ privileged aspect BorderSection_Roo_Entity {
     public void BorderSection.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
-    }
-    
-    @Transactional
-    public BorderSection BorderSection.merge() {
-        if (this.entityManager == null) this.entityManager = entityManager();
-        BorderSection merged = this.entityManager.merge(this);
-        this.entityManager.flush();
-        return merged;
     }
     
     public static final EntityManager BorderSection.entityManager() {
@@ -77,17 +57,9 @@ privileged aspect BorderSection_Roo_Entity {
         return entityManager().createQuery("SELECT COUNT(o) FROM BorderSection o", Long.class).getSingleResult();
     }
     
-    public static List<BorderSection> BorderSection.findAllBorderSections() {
-        return entityManager().createQuery("SELECT o FROM BorderSection o", BorderSection.class).getResultList();
-    }
-    
     public static BorderSection BorderSection.findBorderSection(Long id) {
         if (id == null) return null;
         return entityManager().find(BorderSection.class, id);
-    }
-    
-    public static List<BorderSection> BorderSection.findBorderSectionEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM BorderSection o", BorderSection.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

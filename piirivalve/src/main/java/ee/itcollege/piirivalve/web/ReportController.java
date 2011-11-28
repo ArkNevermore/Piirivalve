@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,24 +24,18 @@ import ee.piirivalve.entities.Troops;
 public class ReportController {
 
     @RequestMapping
-    public void get(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    @RequestMapping(method = RequestMethod.POST, value = "{id}")
-    public void post(@PathVariable Long id, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    @RequestMapping
     public String index(Model uiModel) {
-
-     
+        
        	List <Report> data = new ArrayList<Report>();
-       	
+       	List <Report> data2 = new ArrayList<Report>();
 
        	for (Troops c : Troops.findAllTroopses()) {
-       		data.add(Report.findAllEntries(c));
+       		data.add(Report.findAllSections(c));
+       		data2.add(Report.findAllPoints(c));
        	}
+
        	uiModel.addAttribute("data", data);
+       	uiModel.addAttribute("data2", data2);
         return "report/index";
     }
 }

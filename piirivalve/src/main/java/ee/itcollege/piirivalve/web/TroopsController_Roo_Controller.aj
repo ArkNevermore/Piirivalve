@@ -15,6 +15,8 @@ import java.lang.String;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,6 +33,7 @@ privileged aspect TroopsController_Roo_Controller {
     public String TroopsController.create(@Valid Troops troops, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("troops", troops);
+            addDateTimeFormatPatterns(uiModel);
             return "troopses/create";
         }
         uiModel.asMap().clear();
@@ -41,11 +44,13 @@ privileged aspect TroopsController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String TroopsController.createForm(Model uiModel) {
         uiModel.addAttribute("troops", new Troops());
+        addDateTimeFormatPatterns(uiModel);
         return "troopses/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String TroopsController.show(@PathVariable("id") Long id, Model uiModel) {
+        addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("troops", Troops.findTroops(id));
         uiModel.addAttribute("itemId", id);
         return "troopses/show";
@@ -61,6 +66,7 @@ privileged aspect TroopsController_Roo_Controller {
         } else {
             uiModel.addAttribute("troopses", Troops.findAllTroopses());
         }
+        addDateTimeFormatPatterns(uiModel);
         return "troopses/list";
     }
     
@@ -68,6 +74,7 @@ privileged aspect TroopsController_Roo_Controller {
     public String TroopsController.update(@Valid Troops troops, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
             uiModel.addAttribute("troops", troops);
+            addDateTimeFormatPatterns(uiModel);
             return "troopses/update";
         }
         uiModel.asMap().clear();
@@ -78,6 +85,7 @@ privileged aspect TroopsController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String TroopsController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         uiModel.addAttribute("troops", Troops.findTroops(id));
+        addDateTimeFormatPatterns(uiModel);
         return "troopses/update";
     }
     
@@ -113,6 +121,14 @@ privileged aspect TroopsController_Roo_Controller {
     @ModelAttribute("troopses")
     public Collection<Troops> TroopsController.populateTroopses() {
         return Troops.findAllTroopses();
+    }
+    
+    void TroopsController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("troops_startdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("troops_enddate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("troops_modified_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("troops_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("troops_deleted_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
     }
     
     String TroopsController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

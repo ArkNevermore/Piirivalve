@@ -14,14 +14,37 @@
      <c:forEach items="${data}" var="d">
       	<h3>${d.troops.name}</h3>
       	<table>
+      	<tr STYLE="background-color: gray">
+      	<td>Piirilõik</td>
+      	<td>Vahtkondi</td>
+      	</tr>
+      		<c:forEach items="${d.items}" var="i">
+      			<tr>
+      				<c:forEach items="${i}" var="s">
+      					<td>${s}</td>
+       	    		</c:forEach>
+       	   	    </tr>
+       		</c:forEach>
+       </table>
+    </c:forEach>
+    
+    <c:forEach items="${data2}" var="e">
+   	    <h3>${e.troops.name}</h3>
+      	<table>
+      	<tr STYLE="background-color: gray">
+      	<td>PiiriPunkt</td>
+      	<td>Vahtkondi</td>
+      	</tr>
+      	<c:forEach items="${e.items}" var="k">
       	<tr>
-      	<c:forEach items="${d.items}" var="i">
-      		<c:forEach items="${i}" var="s">
-      		<td>${s}</td>
+      		<c:forEach items="${k}" var="l">
+      			<td>${l}</td>
        	    </c:forEach>
+        </tr>
        	</c:forEach>
-       	    </tr>
        	 </table>
-      </c:forEach>
+   </c:forEach>
+      
+
   </util:panel>
 </div>
