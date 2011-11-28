@@ -113,6 +113,13 @@ public class Troops implements Serializable {
 	}
 
 	public Date getEnddate() {
+		
+	/*	Calendar cal = new GregorianCalendar();
+		cal.set(9999, Calendar.DECEMBER, 31);
+		if (this.enddate.equals(cal.getTime())) {
+			return null;
+			
+		}*/
 		return enddate;
 	}
 
