@@ -1,8 +1,10 @@
 package ee.piirivalve.entities;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -34,7 +36,7 @@ import javax.validation.constraints.NotNull;
 @RooEntity
 public class BorderSection implements Serializable {
 
-	@GeneratedValue(strategy = GenerationType.TABLE)  
+	@GeneratedValue(strategy = GenerationType.AUTO)  
 	@Id
 	private Long id;
 	private static final long serialVersionUID = 1L;
@@ -60,6 +62,11 @@ public class BorderSection implements Serializable {
 	
 	@DateTimeFormat(style="M-")
 	private Date deleted;
+	
+	@DateTimeFormat(style="M-")
+	private Date startdate;
+	@DateTimeFormat(style="M-")
+	private Date enddate;
 	
 	@OneToMany(mappedBy = "borderSection")
 	private Collection<CrossingPoint> crossingPoint;
@@ -112,7 +119,19 @@ public class BorderSection implements Serializable {
 	    return troops;
 	}
 	public void setTroops(Troops param) {
+		
+		if (getTroops() == null ) {
+			this.troops = param;
+			this.setStartdate(new Date());
+		}
+		else if (param != getTroops()) {
+			this.setStartdate(new Date());
+			//this.setEnddate(new Date());
+			troops = param;
+			
+		}else {	
 	    this.troops = param;
+		}
 	}
 	public Collection<Guard> getGuard() {
 	    return guard;
@@ -121,10 +140,32 @@ public class BorderSection implements Serializable {
 	    this.guard = param;
 	}
 	
-    @PrePersist
+    public Date getStartdate() {
+		return startdate;
+	}
+	public void setStartdate(Date startdate) {
+		this.startdate = startdate;
+	}
+	public Date getEnddate() {
+		return enddate;
+	}
+	public void setEnddate(Date enddate) {
+		if (enddate == null) 
+		{
+			Calendar cal = new GregorianCalendar();
+			cal.set(9999, Calendar.DECEMBER, 31);
+			this.enddate = cal.getTime();
+		}else{
+			this.enddate = enddate;
+			setTroops(null);
+		}
+	}
+	@PrePersist
     public void recordCreated() {
         setCreated(new Date());
         setCreator(AuthController.user());
+        setStartdate(new Date());
+        
     }
 
     public Date getModified() {
@@ -141,8 +182,9 @@ public class BorderSection implements Serializable {
 	
 	@PreUpdate
     public void recordModified() {
-        setModified( new Date() );
+        setModified(new Date() );
         setModifier(AuthController.user());
+        setEnddate(null);
     }
 	
     private void setModified(Date date) {
@@ -198,7 +240,7 @@ public class BorderSection implements Serializable {
             if (getCreator() == null)
             	setCreator(oldEntity.getCreator());
             if (getModifier() == null)
-            	setModifier(oldEntity.getModifier()); 
+            	setModifier(oldEntity.getModifier());           
         }
         BorderSection merged = this.entityManager.merge(this);
         this.entityManager.flush();
@@ -210,7 +252,7 @@ public class BorderSection implements Serializable {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
         	preventRemove();
-        	setTroops(null);
+        	setEnddate(new Date());
             //this.entityManager.remove(this);
         } else {
             BorderSection attached = BorderSection.findBorderSection(this.id);

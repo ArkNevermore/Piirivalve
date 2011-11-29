@@ -1,5 +1,6 @@
 package ee.itcollege.piirivalve.web;
 
+import java.util.Date;
 import java.util.List;
 import ee.piirivalve.entities.Troops;
 import javax.persistence.EntityManager;
@@ -29,17 +30,21 @@ public class Report {
 	}
 
     @SuppressWarnings("unchecked")
-	public static Report findAllSections(Troops c) {
-    	Query q = entityManager().createQuery("Select q.name, COUNT(g.name) FROM BorderSection AS q JOIN q.guard AS g WHERE q.troops = :troops GROUP BY q.name");
+	public static Report findAllSections(Troops c, Date d) {
+    	Query q = entityManager().createQuery("Select q.name, COUNT(g.name) FROM BorderSection AS q JOIN q.guard AS g" +
+    			" WHERE q.troops = :troops AND q.startdate <= :date AND q.enddate >= :date GROUP BY q.name");
     	q.setParameter("troops", c);
+    	q.setParameter("date", d);
     	
     	return new Report(c, q.getResultList());
     }
     
     @SuppressWarnings("unchecked")
-	public static Report findAllPoints(Troops c) {
-    	Query q = entityManager().createQuery("Select q.name, COUNT(g.name) FROM CrossingPoint AS q JOIN q.guard AS g WHERE q.troops = :troops GROUP BY q.name");
+	public static Report findAllPoints(Troops c, Date d) {
+    	Query q = entityManager().createQuery("Select q.name, COUNT(g.name) FROM CrossingPoint AS q JOIN q.guard AS g" +
+    			" WHERE q.troops = :troops AND q.startdate <= :date AND q.enddate >= :date GROUP BY q.name");
     	q.setParameter("troops", c);
+    	q.setParameter("date", d);
     	
     	return new Report(c, q.getResultList());
     }

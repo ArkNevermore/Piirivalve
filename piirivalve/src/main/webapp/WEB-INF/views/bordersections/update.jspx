@@ -9,6 +9,8 @@
         <field:input field="coordinates" id="c_ee_piirivalve_entities_BorderSection_coordinates" required="true" z="2MNC61nN/j2dU59GQbmx3EcUntw="/>
         <field:select field="troops" id="c_ee_piirivalve_entities_BorderSection_troops" itemValue="id" items="${troopses}" path="/troopses" z="EZvGDpOrscI6OY80W+xwgtGdQNc="/>
         <field:select field="guard" id="c_ee_piirivalve_entities_BorderSection_guard" itemValue="id" items="${troop_guards}" multiple="true" path="/guards" z="user-managed"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_enddate"/>
+        <util:placeholder id="c_ee_piirivalve_entities_BorderSection_startdate"/>
         <util:placeholder id="c_ee_piirivalve_entities_BorderSection_crossingPoint"/>
         <util:placeholder id="c_ee_piirivalve_entities_BorderSection_modified"/>
         <util:placeholder id="c_ee_piirivalve_entities_BorderSection_created"/>

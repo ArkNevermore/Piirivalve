@@ -32,7 +32,7 @@ import javax.persistence.OneToMany;
 @RooEntity
 public class Location implements Serializable {
 
-	@GeneratedValue(strategy = GenerationType.TABLE)   
+	@GeneratedValue(strategy = GenerationType.AUTO)   
 	@Id
 	private Long id;
 	private String name;

@@ -33,7 +33,7 @@ import ee.itcollege.piirivalve.web.AuthController;
 @RooEntity
 public class CrossingPoint implements Serializable {
 
-    @GeneratedValue(strategy = GenerationType.TABLE)   
+    @GeneratedValue(strategy = GenerationType.AUTO)   
 	@Id
 	private Long id;
 	
@@ -51,7 +51,6 @@ public class CrossingPoint implements Serializable {
     private String height;
 	
 	@DateTimeFormat(style="M-")
-	@NotNull
 	private Date startdate;
 	@DateTimeFormat(style="M-")
 	private Date enddate;
@@ -254,7 +253,7 @@ public class CrossingPoint implements Serializable {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
         	preventRemove();
-        	setTroops(null);
+        	setEnddate(new Date());
             //this.entityManager.remove(this);
         } else {
         	CrossingPoint attached = CrossingPoint.findCrossingPoint(this.id);
@@ -262,11 +261,12 @@ public class CrossingPoint implements Serializable {
         }
     }
 	
-    public static List<CrossingPoint> findAllBorderSections() {
+    public static List<CrossingPoint> findAllCrossingPoints() {
         return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleted is null", CrossingPoint.class).getResultList();
     }
     
-    public static List<CrossingPoint> findBorderSectionEntries(int firstResult, int maxResults) {
+    public static List<CrossingPoint> findCrossingPointEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("SELECT o FROM CrossingPoint o where o.deleted is null", CrossingPoint.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-    }	
+    }
+    
 }

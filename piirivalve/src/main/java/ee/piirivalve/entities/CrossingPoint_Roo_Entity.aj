@@ -6,7 +6,6 @@ package ee.piirivalve.entities;
 import ee.piirivalve.entities.CrossingPoint;
 import java.lang.Integer;
 import java.lang.Long;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -58,17 +57,9 @@ privileged aspect CrossingPoint_Roo_Entity {
         return entityManager().createQuery("SELECT COUNT(o) FROM CrossingPoint o", Long.class).getSingleResult();
     }
     
-    public static List<CrossingPoint> CrossingPoint.findAllCrossingPoints() {
-        return entityManager().createQuery("SELECT o FROM CrossingPoint o", CrossingPoint.class).getResultList();
-    }
-    
     public static CrossingPoint CrossingPoint.findCrossingPoint(Long id) {
         if (id == null) return null;
         return entityManager().find(CrossingPoint.class, id);
-    }
-    
-    public static List<CrossingPoint> CrossingPoint.findCrossingPointEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM CrossingPoint o", CrossingPoint.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

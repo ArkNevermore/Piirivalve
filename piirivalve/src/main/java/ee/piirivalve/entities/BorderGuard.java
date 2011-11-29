@@ -20,7 +20,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooEntity
 public class BorderGuard implements Serializable {
 
-	@GeneratedValue(strategy = GenerationType.TABLE)    
+	@GeneratedValue(strategy = GenerationType.AUTO)    
 	@Id
 	private Long id;
 	private String name;

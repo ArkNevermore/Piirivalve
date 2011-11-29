@@ -32,7 +32,7 @@ import ee.itcollege.piirivalve.web.AuthController;
 @RooEntity
 public class Guard implements Serializable {
 
-    @GeneratedValue(strategy = GenerationType.TABLE)  
+    @GeneratedValue(strategy = GenerationType.AUTO)  
 	@Id
 	private Long id;
     

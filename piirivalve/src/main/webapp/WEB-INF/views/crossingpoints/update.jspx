@@ -9,7 +9,7 @@
         <field:input field="longitude" id="c_ee_piirivalve_entities_CrossingPoint_longitude" required="true" z="LTgRegQNqZSzXHLdn3Cx1l8j+cA="/>
         <field:input field="latitude" id="c_ee_piirivalve_entities_CrossingPoint_latitude" required="true" z="4ZckuTH3PaWAJ6pDm107cQYjpuo="/>
         <field:input field="height" id="c_ee_piirivalve_entities_CrossingPoint_height" required="true" z="hQwhkM8/7HwT94Y+5yqkF5LNt14="/>
-        <field:datetime dateTimePattern="${crossingPoint_startdate_date_format}" field="startdate" id="c_ee_piirivalve_entities_CrossingPoint_startdate" required="true" z="GQJV0XsDFgEDG9hVU05nN8x7b/o="/>
+        <field:datetime dateTimePattern="${crossingPoint_startdate_date_format}" field="startdate" id="c_ee_piirivalve_entities_CrossingPoint_startdate" z="wkKsbBPj9fMTx2o4xMnop5zRHtU="/>
         <field:datetime dateTimePattern="${crossingPoint_enddate_date_format}" field="enddate" id="c_ee_piirivalve_entities_CrossingPoint_enddate" z="fC0oYzzjFMBpy6GP7+pOEX9Aerk="/>
         <field:select field="borderSection" id="c_ee_piirivalve_entities_CrossingPoint_borderSection" itemValue="id" items="${bordersections}" path="/bordersections" z="v43IXhzaPodE3HG9ASBYhIRBFQY="/>
         <field:select field="guard" id="c_ee_piirivalve_entities_CrossingPoint_guard" itemValue="id" items="${troop_guards}" multiple="true" path="/guards" z="user-managed"/>

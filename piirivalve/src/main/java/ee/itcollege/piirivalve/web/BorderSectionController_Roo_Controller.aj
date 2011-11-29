@@ -111,6 +111,8 @@ privileged aspect BorderSectionController_Roo_Controller {
     }
     
     void BorderSectionController.addDateTimeFormatPatterns(Model uiModel) {
+        uiModel.addAttribute("borderSection_startdate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("borderSection_enddate_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("borderSection_modified_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("borderSection_created_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
         uiModel.addAttribute("borderSection_deleted_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));

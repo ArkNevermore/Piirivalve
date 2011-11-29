@@ -17,13 +17,14 @@ privileged aspect BorderSection_Roo_ToString {
         sb.append("CrossingPoint: ").append(getCrossingPoint() == null ? "null" : getCrossingPoint().size()).append(", ");
         sb.append("Deleted: ").append(getDeleted()).append(", ");
         sb.append("Deleter: ").append(getDeleter()).append(", ");
+        sb.append("Enddate: ").append(getEnddate()).append(", ");
         sb.append("Guard: ").append(getGuard() == null ? "null" : getGuard().size()).append(", ");
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Modified: ").append(getModified()).append(", ");
         sb.append("Modifier: ").append(getModifier()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Troops: ").append(getTroops()).append(", ");
-        sb.append("Version: ").append(getVersion());
+        sb.append("Startdate: ").append(getStartdate()).append(", ");
+        sb.append("Troops: ").append(getTroops());
         return sb.toString();
     }
     
