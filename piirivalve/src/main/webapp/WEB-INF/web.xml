@@ -73,9 +73,6 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <listener>
-  		 <listener-class>ee.itcollege.piirivalve.web.DataLoadController</listener-class>
-	</listener>
     
     
     <!-- Handles Spring requests -->
