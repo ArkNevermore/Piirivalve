@@ -134,12 +134,17 @@ public class CrossingPoint implements Serializable {
 	public Date getEnddate() {
 		return enddate;
 	}
+	
+	private Date maxDate() {
+		Calendar cal = new GregorianCalendar();
+		cal.set(9999, Calendar.DECEMBER, 31);
+		return cal.getTime();
+	}
+	
 	public void setEnddate(Date enddate) {
 		if (enddate == null) 
 		{
-			Calendar cal = new GregorianCalendar();
-			cal.set(9999, Calendar.DECEMBER, 31);
-			this.enddate = cal.getTime();
+			this.enddate = maxDate();
 		}else{
 			this.enddate = enddate;
 			setTroops(null);

@@ -113,26 +113,23 @@ public class Troops implements Serializable {
 	}
 
 	public Date getEnddate() {
-		
-	/*	Calendar cal = new GregorianCalendar();
-		cal.set(9999, Calendar.DECEMBER, 31);
-		if (this.enddate.equals(cal.getTime())) {
-			return null;
-			
-		}*/
 		return enddate;
 	}
 
 	public void setEnddate(Date enddate) {
 		if (enddate == null) 
 			{
-				Calendar cal = new GregorianCalendar();
-				cal.set(9999, Calendar.DECEMBER, 31);
-				this.enddate = cal.getTime();
+			this.enddate = maxDate();
 			}else{
 				this.enddate = enddate;
 				
 			}
+	}
+	
+	private Date maxDate() {
+		Calendar cal = new GregorianCalendar();
+		cal.set(9999, Calendar.DECEMBER, 31);
+		return cal.getTime();
 	}
 	
 	public Troops getFatherTroops() {
@@ -172,7 +169,7 @@ public class Troops implements Serializable {
                 g.setTroops(this);
         }
     }
-
+    
 	public Collection<BorderSection> getBorderSection() {
 	    return borderSection;
 	}
@@ -193,6 +190,7 @@ public class Troops implements Serializable {
     public void recordCreated() {
         setCreated(new Date());
         setCreator(AuthController.user());
+        
     }
 
     public Date getModified() {
