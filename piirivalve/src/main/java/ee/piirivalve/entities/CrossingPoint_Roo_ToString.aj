@@ -26,7 +26,8 @@ privileged aspect CrossingPoint_Roo_ToString {
         sb.append("Modifier: ").append(getModifier()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
         sb.append("Startdate: ").append(getStartdate()).append(", ");
-        sb.append("Troops: ").append(getTroops());
+        sb.append("Troops: ").append(getTroops()).append(", ");
+        sb.append("Version: ").append(getVersion());
         return sb.toString();
     }
     
