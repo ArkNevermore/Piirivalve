@@ -145,9 +145,11 @@ public class CrossingPoint implements Serializable {
 		if (enddate == null) 
 		{
 			this.enddate = maxDate();
-		}else{
+		}else if (enddate == maxDate() ) {
+			
+		}
+		else{
 			this.enddate = enddate;
-			//setTroops(null);
 		}
 	}
 	public BorderSection getBorderSection() {
@@ -173,6 +175,7 @@ public class CrossingPoint implements Serializable {
     public void recordCreated() {
         setCreated(new Date());
         setCreator(AuthController.user());
+        setEnddate(null);
     }
 
     public Date getModified() {
@@ -191,6 +194,7 @@ public class CrossingPoint implements Serializable {
     public void recordModified() {
         setModified( new Date() );
         setModifier(AuthController.user());
+        setEnddate(null);
     }
 	
     private void setModified(Date date) {

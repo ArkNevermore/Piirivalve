@@ -160,9 +160,11 @@ public class BorderSection implements Serializable {
 		if (enddate == null) 
 		{
 			this.enddate = maxDate();
-		}else{
+		}else if (enddate == maxDate() ) {
+			
+		}
+		else{
 			this.enddate = enddate;
-			//setTroops(null);
 		}
 	}
 	@PrePersist
@@ -170,6 +172,7 @@ public class BorderSection implements Serializable {
         setCreated(new Date());
         setCreator(AuthController.user());
         setStartdate(new Date());
+        setEnddate(null);
         
     }
 

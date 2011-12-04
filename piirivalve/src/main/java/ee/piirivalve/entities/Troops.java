@@ -118,12 +118,14 @@ public class Troops implements Serializable {
 
 	public void setEnddate(Date enddate) {
 		if (enddate == null) 
-			{
+		{
 			this.enddate = maxDate();
-			}else{
-				this.enddate = enddate;
-				
-			}
+		}else if (enddate == maxDate() ) {
+			
+		}
+		else{
+			this.enddate = enddate;
+		}
 	}
 	
 	private Date maxDate() {
@@ -190,7 +192,7 @@ public class Troops implements Serializable {
     public void recordCreated() {
         setCreated(new Date());
         setCreator(AuthController.user());
-        
+        setEnddate(null);
     }
 
     public Date getModified() {
@@ -209,6 +211,7 @@ public class Troops implements Serializable {
     public void recordModified() {
         setModified( new Date() );
         setModifier(AuthController.user());
+        setEnddate(null);
     }
 	
     private void setModified(Date date) {
@@ -227,6 +230,7 @@ public class Troops implements Serializable {
     public void preventRemove() {
 		setDeleted(new Date());
 		setDeleter(AuthController.user());
+		setEnddate(new Date());
     }
 	
 	public String getCreator() {
