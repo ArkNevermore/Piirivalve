@@ -162,7 +162,7 @@ public class BorderSection implements Serializable {
 			this.enddate = maxDate();
 		}else{
 			this.enddate = enddate;
-			setTroops(null);
+			//setTroops(null);
 		}
 	}
 	@PrePersist
