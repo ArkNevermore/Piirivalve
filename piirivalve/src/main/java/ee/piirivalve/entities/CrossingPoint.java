@@ -194,7 +194,6 @@ public class CrossingPoint implements Serializable {
     public void recordModified() {
         setModified( new Date() );
         setModifier(AuthController.user());
-        setEnddate(null);
     }
 	
     private void setModified(Date date) {
@@ -251,6 +250,8 @@ public class CrossingPoint implements Serializable {
             	setCreator(oldEntity.getCreator());
             if (getModifier() == null)
             	setModifier(oldEntity.getModifier()); 
+            if (getEnddate() == null)
+            	setEnddate(oldEntity.getEnddate()); 
         }
         CrossingPoint merged = this.entityManager.merge(this);
         this.entityManager.flush();
